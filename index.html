@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title id="seo-title">Shobdotori Premium Store | Curated Bookstore & AI Literary Assistant</title>
+  <meta name="description" id="seo-desc" content="Discover Shobdotori Premium Store, your premier literary haven. Browse curated books, track order delivery live, and interact with our automated AI Book Assistant.">
+  <meta name="keywords" content="bookstore, curated books, Shobdotori, AI book assistant, online books, buy novels, literary haven">
+  
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 h-14 flex items-center">
+  <div class="max-w-7xl mx-auto px-3 sm:px-5 w-full flex items-center justify-between">
+    <a href="#" class="text-lg sm:text-xl font-semibold tracking-tight text-black font-serif">Shobdotori</a>
+    <div class="flex items-center gap-4 sm:gap-5">
+      <button id="wishlist-btn" class="relative text-gray-700 hover:text-black transition-colors" aria-label="Open Wishlist Panel">
+        <span id="wishlist-count" class="absolute -top-1 -right-1.5 h-4 w-4 items-center justify-center rounded-full bg-gray-800 text-white text-[9px] font-bold hidden">0</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        </svg>
+      </button>
+
+      <button id="cart-btn" class="relative text-gray-700 hover:text-black transition-colors" aria-label="Open Cart Panel">
+        <span id="cart-count" class="absolute -top-1 -right-1.5 h-4 w-4 items-center justify-center rounded-full bg-gray-800 text-white text-[9px] font-bold hidden">0</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+      </button>
+
+      <button id="track-btn" class="text-gray-700 hover:text-black transition-colors" aria-label="Track Active Deliveries">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0zM13 11V7a1 1 0 00-1-1H3a1 1 0 00-1 1v7m11-3h3l3 3v2h-8m-4 0h6m-12 0h2"></path>
+        </svg>
+      </button>
+
+      <button id="profile-btn" class="relative text-gray-700 hover:text-black transition-colors focus:outline-none" aria-label="Open User Account Panel">
+        <span id="user-profile-badge" class="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-purple-600 hidden" aria-hidden="true"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-5 h-5">
+            <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="3"/>
+            <circle cx="32" cy="24" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+            <path d="M16 50c0-8.8 7.2-16 16-16s16 7.2 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- LOADING SKELETON / MAIN VIEWPORT -->
+<main id="main-content">
+  <div class="mt-2 space-y-4">
+    <div class="skeleton-banner skeleton-bg"></div>
+    <div class="skeleton-grid">
+      <div class="bg-[#F7F5FF] rounded-2xl overflow-hidden p-2">
+        <div class="h-28 sm:h-32 skeleton-bg rounded-xl mb-2"></div>
+        <div class="space-y-1.5">
+          <div class="h-4 skeleton-bg rounded w-3/4"></div>
+          <div class="h-3 skeleton-bg rounded w-1/2"></div>
+        </div>
+        <div class="h-8 skeleton-bg rounded-lg mt-2"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="relative mt-16 mb-8 px-3 sm:px-5">
+  <div class="relative bg-[#0A0A0B] rounded-2xl sm:rounded-3xl text-white px-6 sm:px-10 py-10 sm:py-14 text-center">
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+      <div class="text-center sm:text-left">
+        <a href="#" class="text-xl font-semibold font-serif">Shobdotori</a>
+        <p class="text-xs text-gray-400 mt-2">Premium Curated Bookstore Experience.</p>
+      </div>
+      <div class="flex gap-4 flex-wrap justify-center my-3" id="footer-social-container"></div>
+      <div class="flex gap-6 text-xs text-gray-400">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+    <div class="mt-8 pt-5 border-t border-white/10 text-center text-[10px] text-gray-500">
+      <p>&copy; 2026 Shobdotori Store. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="chat-btn" class="fixed bottom-10 right-6 z-40 w-14 h-14 bg-purple-600 hover:bg-purple-700 hover:scale-110 active:scale-95 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300" aria-label="Open AI Assistant">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7 text-white" fill="none">
+    <path d="M7 4C5.343 4 4 5.343 4 7V13C4 14.657 5.343 16 7 16H8V20L12.5 16H17C18.657 16 20 14.657 20 13V7C20 5.343 18.657 4 17 4H7Z" fill="currentColor"/>
+    <rect x="8" y="8" width="8" height="1.5" rx="0.75" fill="white"/>
+    <rect x="8" y="11" width="6" height="1.5" rx="0.75" fill="white"/>
+  </svg>
+</button>
+
+<script>
+// ==========================================
+// CLIENT-SIDE WEB CONTROLLER
+// ==========================================
+let products = [], categories = [], categoryMap = {}, activeCategory = 'all';
+let cart = JSON.parse(localStorage.getItem('shobdotori_cart') || '[]');
+let wishlist = JSON.parse(localStorage.getItem('shobdotori_wishlist') || '[]');
+let currentUser = JSON.parse(localStorage.getItem('shobdotori_user') || 'null');
+
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+
+// Helper function to build headers
+function getHeaders() {
+  const headers = { "Content-Type": "application/json" };
+  if (currentUser && currentUser.uid) {
+    headers["x-user-uid"] = currentUser.uid;
+    headers["x-user-email"] = currentUser.email;
+  }
+  return headers;
+}
+
+function saveCart() { localStorage.setItem('shobdotori_cart', JSON.stringify(cart)); updateCartBadge(); }
+function saveWishlist() { localStorage.setItem('shobdotori_wishlist', JSON.stringify(wishlist)); updateWishlistBadge(); }
+
+function formatPrice(p) { return '₹' + Number(p).toFixed(2); }
+function discountPercent(o,c) { if(!o||o<=c) return null; return Math.round(((o-c)/o)*100); }
+function getStockDisplay(stock) { return (stock === undefined || stock === null || stock === '' || stock === 0) ? '0' : stock; }
+
+async function loadAllData() {
+  try {
+    const [pRes, cRes] = await Promise.all([fetch("/api/products"), fetch("/api/categories")]);
+    products = await pRes.json();
+    categories = await cRes.json();
+    categories.forEach(cat => categoryMap[cat.id] = cat.name);
+    loadFooterSocials();
+  } catch(e) { console.error(e); }
+  document.body.classList.add('ready');
+  renderMainView();
+  observeReveal();
+  updateCartBadge(); updateWishlistBadge();
+}
+
+async function loadFooterSocials() {
+  const container = $('#footer-social-container'); if (!container) return;
+  try {
+    const res = await fetch("/api/socials");
+    const data = await res.json();
+    let html = '';
+    if (data.facebook) html += `<a href="${data.facebook}" target="_blank" class="social-bubble social-bubble-facebook"><i class="fab fa-facebook-f text-black"></i></a>`;
+    if (data.instagram) html += `<a href="${data.instagram}" target="_blank" class="social-bubble social-bubble-instagram"><i class="fab fa-instagram text-black"></i></a>`;
+    if (data.twitter) html += `<a href="${data.twitter}" target="_blank" class="social-bubble social-bubble-twitter"><i class="fab fa-twitter-x text-black"></i></a>`;
+    if (data.linkedin) html += `<a href="${data.linkedin}" target="_blank" class="social-bubble social-bubble-linkedin"><i class="fab fa-linkedin-in text-black"></i></a>`;
+    if (data.telegram) html += `<a href="${data.telegram}" target="_blank" class="social-bubble social-bubble-telegram"><i class="fab fa-telegram-plane text-black"></i></a>`;
+    container.innerHTML = html;
+  } catch (err) { console.error('Error rendering socials: ', err); }
+}
+
+window.closeOverlay = function(overlayElement) {
+  if (!overlayElement) return;
+  overlayElement.classList.add('closing');
+  overlayElement.addEventListener('animationend', function onEnd(e) {
+    if (e.target === overlayElement) {
+      overlayElement.remove();
+      if (!document.querySelector('.full-page-overlay:not(.closing)')) {
+        document.body.style.overflow = '';
+      }
+      overlayElement.removeEventListener('animationend', onEnd);
+    }
+  });
+};
+
+function getRatingStarsHTML(rating) {
+  if (!rating) return '';
+  let stars = '';
+  for (let i = 1; i <= 5; i++) {
+    stars += `<i class="${i <= Math.round(rating) ? 'fa-solid fa-star text-yellow-400' : 'fa-regular fa-star text-gray-300'} text-[10px]"></i>`;
+  }
+  return `<div class="flex items-center gap-0.5 justify-center mt-1">${stars} <span class="text-[9px] text-gray-500 font-medium ml-1">(${Number(rating).toFixed(1)})</span></div>`;
+}
+
+function productCard(product) {
+  const disc = discountPercent(product.originalPrice, product.price);
+  return `
+  <div class="group cursor-pointer reveal-on-scroll hover-lift text-center" onclick="window.goToProductDetail('${product.id}')">
+    <div class="book-cover-wrap mb-1.5 shadow-sm">
+      <img src="${product.image||''}" alt="${product.name}" class="book-cover-img" onerror="this.style.display='none';this.parentElement.style.background='#F3F0FF';" loading="lazy">
+      ${product.badge?`<span class="absolute top-1 left-1 px-1 py-0.5 rounded-full bg-white/90 backdrop-blur-sm text-[7px] font-bold uppercase text-gray-900">${product.badge}</span>`:''}
+      ${disc ? `<span class="absolute top-1 right-1 px-1 py-0.5 rounded-full bg-red-500 text-white text-[7px] font-bold">-${disc}%</span>` : ''}
+    </div>
+    <div class="space-y-0.5 px-0.5">
+      <h3 class="text-[10px] sm:text-xs font-semibold text-gray-900 line-clamp-1">${product.name}</h3>
+      <div class="flex items-center justify-center gap-1.5">
+        <span class="font-bold text-xs sm:text-sm text-gray-900">${formatPrice(product.price)}</span>
+        ${product.originalPrice > product.price ? `<span class="text-[9px] text-gray-400 line-through">${formatPrice(product.originalPrice)}</span>` : ''}
+      </div>
+      ${product.averageRating ? getRatingStarsHTML(product.averageRating) : ''}
+    </div>
+    <button class="mt-2 w-full py-2 bg-black hover:bg-gray-800 text-white rounded-lg text-[10px] sm:text-xs font-semibold transition-all flex items-center justify-center gap-1 add-to-cart-btn" data-id="${product.id}">
+      <span class="btn-text">Add to Cart</span>
+    </button>
+  </div>`;
+}
+
+function attachListeners() {
+  $$('.add-to-cart-btn').forEach(b => b.onclick = (e) => {
+    e.stopPropagation();
+    const id = String(b.dataset.id);
+    const existing = cart.find(i => String(i.id) === id);
+    if (existing) existing.qty++; else cart.push({ id, qty: 1 });
+    saveCart();
+    b.classList.add('animate-add-success');
+    b.innerHTML = `<svg class="w-3.5 h-3.5 text-white animate-check-pop" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Added`;
+    setTimeout(() => {
+      b.classList.remove('animate-add-success');
+      b.innerHTML = '<span class="btn-text">Add to Cart</span>';
+    }, 1400);
+  });
+}
+
+function filterProducts(catId) {
+  activeCategory = catId; const grid = $('#products-grid'); if (!grid) return;
+  let filtered = catId === 'all' ? products : products.filter(p => p.category === catId);
+  const sorted = [...filtered].sort((a,b) => (b.reviews||0) - (a.reviews||0));
+  grid.innerHTML = sorted.length ? sorted.map(p => productCard(p)).join('') : '<p class="col-span-full text-center text-gray-400 py-8 text-sm">No products found</p>';
+  attachListeners();
+  observeReveal();
+}
+
+function renderMainView() {
+  const main = $('#main-content');
+  main.innerHTML = `
+  <section class="relative w-full rounded-2xl sm:rounded-3xl h-[280px] sm:h-[480px] lg:h-[580px] overflow-hidden mt-2 shadow-lg ring-1 ring-black/5 isolate">
+    <div class="absolute inset-0 bg-[#F3F0FF] overflow-hidden">
+      <div class="absolute top-[-15%] right-[-10%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] rounded-full bg-gradient-to-b from-purple-300 via-indigo-300 to-transparent blur-[100px] opacity-60 animate-float-slow mix-blend-multiply"></div>
+    </div>
+    <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+      <div class="max-w-md sm:max-w-xl reveal-on-scroll">
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 tracking-tighter mb-3">Your Premier Literary Haven</h1>
+        <p class="text-xs sm:text-base text-gray-600 max-w-xs sm:max-w-lg mx-auto mb-5">Selected collections and titles direct to your bookshelf.</p>
+        <a href="#products" class="inline-flex items-center gap-2.5 bg-white text-gray-900 pl-6 pr-4 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform active:scale-95">
+          <span class="text-sm sm:text-base font-extrabold tracking-tight">Shop Collection</span>
+          <svg viewBox="0 0 48 48" class="w-4 h-4 text-gray-800"><path d="M16 10L32 24L16 38" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="products" class="mt-10 sm:mt-14">
+    <h2 class="text-lg sm:text-2xl font-semibold text-gray-900 reveal-on-scroll mb-3">Discover Collection</h2>
+    <div class="mb-5 relative reveal-on-scroll">
+      <input type="text" id="product-search" placeholder="Search by book title, author name or keywords..." class="w-full px-4 py-3 pr-10 border border-gray-100 bg-gray-50/50 rounded-2xl text-xs outline-none cursor-pointer" readonly>
+      <span class="absolute right-3.5 top-3.5 text-gray-400">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      </span>
+    </div>
+    <div class="flex flex-nowrap gap-1.5 mb-4 overflow-x-auto no-scrollbar pb-1 w-full" id="category-tabs">
+      <span class="cat-tab active" data-cat="all">All</span>
+      ${categories.map(c => `<span class="cat-tab" data-cat="${c.id}">${c.name}</span>`).join('')}
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2 sm:gap-2.5" id="products-grid"></div>
+  </section>`;
+
+  $$('.cat-tab').forEach(tab => {
+    tab.onclick = () => {
+      $$('.cat-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      filterProducts(tab.dataset.cat);
+    };
+  });
+
+  const searchInput = $('#product-search');
+  if (searchInput) searchInput.onclick = () => window.openSearchOverlay();
+
+  filterProducts('all');
+  observeReveal();
+}
+
+window.openSearchOverlay = function() {
+  const existing = document.querySelector('#search-overlay-page'); if (existing) existing.remove();
+  const overlay = document.createElement('div'); overlay.id = 'search-overlay-page'; overlay.className = 'full-page-overlay';
+  overlay.innerHTML = `
+  <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+    <div class="flex items-center gap-3 px-5 py-4 border-b bg-white sticky top-0 z-10">
+      <input id="overlay-search-input" type="text" placeholder="Search books..." class="w-full px-4 py-3 pr-10 border border-purple-100 bg-purple-50/20 rounded-2xl text-xs outline-none">
+      <button id="close-search-overlay" class="close-btn">Close</button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-5 bg-white">
+      <div id="overlay-search-results-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
+    </div>
+  </div>`;
+  
+  document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+  overlay.querySelector('#close-search-overlay').onclick = () => window.closeOverlay(overlay);
+  
+  const input = overlay.querySelector('#overlay-search-input');
+  const grid = overlay.querySelector('#overlay-search-results-grid');
+  input.focus();
+  
+  input.oninput = () => {
+    const q = input.value.trim().toLowerCase(); if (!q) { grid.innerHTML = ''; return; }
+    const filtered = products.filter(p => p.name.toLowerCase().includes(q) || (p.author && p.author.toLowerCase().includes(q)));
+    grid.innerHTML = filtered.map(p => `
+      <div class="group cursor-pointer hover-lift text-center" onclick="window.goToProductDetail('${p.id}')">
+        <div class="book-cover-wrap mb-1.5 shadow-sm"><img src="${p.image||''}" class="book-cover-img"></div>
+        <h3 class="text-[10px] sm:text-xs font-semibold text-gray-900">${p.name}</h3>
+      </div>`).join('');
+  };
+};
+
+window.goToProductDetail = async function(id) {
+  const product = products.find(p => p.id === id); if (!product) return;
+  const isWish = wishlist.includes(product.id);
+  const existing = document.querySelector('.full-page-overlay'); if (existing) existing.remove();
+  const overlay = document.createElement('div'); overlay.className = 'full-page-overlay';
+  overlay.innerHTML = `
+  <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+    <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
+      <h2 class="text-base font-bold text-gray-900">Details</h2>
+      <button id="close-product-overlay" class="close-btn">Close</button>
+    </div>
+    <div class="overlay-scroll pb-10 px-6 py-6 space-y-5">
+      <div class="book-cover-wrap max-w-[240px] mx-auto shadow-md"><img src="${product.image||''}" class="book-cover-img"></div>
+      <div class="flex justify-between items-start">
+        <h1 class="text-xl font-serif font-bold text-gray-900">${product.name}</h1>
+        <button id="overlay-wishlist" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100"><i class="fa-solid fa-heart ${isWish?'text-red-500':'text-gray-400'}"></i></button>
+      </div>
+      <p class="text-2xl font-bold text-gray-900">${formatPrice(product.price)}</p>
+      <div class="border-t pt-4 text-xs space-y-1">
+        <p><span class="font-bold text-gray-400">Author:</span> ${product.author||'Unknown'}</p>
+        <p><span class="font-bold text-gray-400">Stock:</span> ${getStockDisplay(product.stock)}</p>
+        <p class="text-gray-600 mt-2">${product.desc||'No details available.'}</p>
+      </div>
+      <div class="border-t pt-4">
+        <p class="text-xs font-bold text-gray-400 mb-3">Customer Reviews</p>
+        <div id="compiled-product-reviews" class="space-y-3 text-xs text-gray-400">Loading reviews...</div>
+        <div id="submission-review-box" class="mt-4 p-4 bg-gray-50 rounded-2xl border border-gray-100 hidden">
+          <p class="text-xs font-bold mb-2">Write feedback</p>
+          <input type="number" id="review-rating-input" min="1" max="5" placeholder="Rating (1-5)" class="w-full p-2 border rounded-xl text-xs mb-2">
+          <textarea id="review-comment-input" rows="3" placeholder="Review details..." class="w-full p-3 border rounded-xl text-xs outline-none bg-white"></textarea>
+          <button id="post-review-btn" class="mt-2 w-full py-2.5 bg-black text-white rounded-xl text-xs font-semibold">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="border-t p-4 flex gap-3 bg-white sticky bottom-0 w-full max-w-2xl mx-auto">
+      <button class="flex-1 py-3 bg-black text-white rounded-xl font-semibold text-xs add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+      <button class="flex-1 py-3 bg-purple-600 text-white rounded-xl font-semibold text-xs buy-now-btn" data-id="${product.id}">Buy Now</button>
+    </div>
+  </div>`;
+
+  document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+  overlay.querySelector('#close-product-overlay').onclick = () => window.closeOverlay(overlay);
+  
+  const wishBtn = overlay.querySelector('#overlay-wishlist');
+  wishBtn.onclick = () => {
+    const idx = wishlist.indexOf(product.id);
+    if (idx > -1) wishlist.splice(idx,1); else wishlist.push(product.id);
+    saveWishlist(); window.goToProductDetail(product.id);
+  };
+  
+  overlay.querySelector('.add-to-cart-btn').onclick = () => {
+    const ex = cart.find(i => i.id === product.id); if (ex) ex.qty++; else cart.push({ id: product.id, qty: 1 });
+    saveCart(); showAlert("Product added to bag!");
+  };
+
+  overlay.querySelector('.buy-now-btn').onclick = () => {
+    window.closeOverlay(overlay); openCheckout([{ id: product.id, qty: 1 }], product.price);
+  };
+
+  // Fetch reviews from API
+  const reviewContainer = overlay.querySelector('#compiled-product-reviews');
+  try {
+    const res = await fetch(`/api/reviews/${product.id}`);
+    const rData = await res.json();
+    if (rData.length === 0) {
+      reviewContainer.innerHTML = 'No reviews yet.';
+    } else {
+      reviewContainer.innerHTML = rData.map(r => `
+        <div class="border-b pb-2">
+          <p class="font-bold">${r.userName} (${r.rating}/5)</p>
+          <p class="text-gray-600 mt-1">${r.text}</p>
+        </div>`).join('');
+    }
+  } catch(e) { reviewContainer.innerHTML = 'Reviews offline.'; }
+
+  if (currentUser) {
+    overlay.querySelector('#submission-review-box').classList.remove('hidden');
+    overlay.querySelector('#post-review-btn').onclick = async () => {
+      const rating = Number(overlay.querySelector('#review-rating-input').value);
+      const text = overlay.querySelector('#review-comment-input').value.trim();
+      if (!rating || !text) return showAlert('Please fill out all fields.');
+      try {
+        const postRes = await fetch("/api/reviews", {
+          method: "POST",
+          headers: getHeaders(),
+          body: JSON.stringify({ productId: product.id, rating, text })
+        });
+        const ans = await postRes.json();
+        if (ans.success) {
+          showAlert("Review submitted successfully!");
+          window.goToProductDetail(product.id);
+        } else {
+          showAlert(ans.error);
+        }
+      } catch(err) { showAlert("Submissions failed."); }
+    };
+  }
+};
+
+window.openCheckout = async function(items, subtotal) {
+  const existing = document.querySelector('.full-page-overlay'); if (existing) existing.remove();
+  const overlay = document.createElement('div'); overlay.className = 'full-page-overlay';
+  
+  let itemsHtml = items.map(item => {
+    const p = products.find(prod => prod.id === item.id);
+    return p ? `
+      <div class="checkout-item flex gap-3 items-center bg-gray-50 rounded-xl p-3" data-id="${p.id}" data-price="${p.price}">
+        <img src="${p.image||''}" class="custom-cart-wish-img">
+        <div class="flex-1"><p class="text-xs font-medium text-gray-900">${p.name}</p>
+          <div class="flex items-center gap-2 mt-1"><span class="text-[10px] text-gray-500">Qty: ${item.qty}</span></div>
+        </div>
+        <p class="text-xs font-bold item-total">${formatPrice(p.price*item.qty)}</p>
+      </div>` : '';
+  }).join('');
+
+  overlay.innerHTML = `
+  <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+    <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
+      <h2 class="text-base font-bold text-gray-900 font-serif">Checkout</h2>
+      <button id="cancel-checkout" class="close-btn">Close</button>
+    </div>
+    <div class="overlay-scroll p-5 space-y-4">
+      <div class="space-y-2.5">${itemsHtml}</div>
+      <div class="space-y-3 pt-3 border-t">
+        <p class="text-xs font-bold uppercase tracking-wider text-gray-400">Shipping Details</p>
+        <input id="ch-name" placeholder="Full Name" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+        <input id="ch-email" type="email" placeholder="Email" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+        <input id="ch-mobile" type="tel" placeholder="Mobile Number" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+        <input id="ch-address" placeholder="Address" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+        <div class="flex gap-2">
+          <input id="ch-city" placeholder="City" class="w-1/2 px-4 py-3 border rounded-xl text-xs outline-none">
+          <input id="ch-zip" placeholder="Pincode" class="w-1/2 px-4 py-3 border rounded-xl text-xs outline-none">
+        </div>
+      </div>
+      <div class="space-y-2 pt-3 border-t">
+        <div class="flex justify-between text-xs text-gray-900 font-bold"><span>Total</span><span id="order-total">${formatPrice(subtotal)}</span></div>
+      </div>
+    </div>
+    <div class="border-t p-4 bg-white sticky bottom-0 w-full max-w-2xl mx-auto">
+      <button id="confirm-order" class="w-full py-3.5 bg-purple-600 text-white rounded-xl font-bold text-xs">Confirm & Pay</button>
+    </div>
+  </div>`;
+
+  document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+  overlay.querySelector('#cancel-checkout').onclick = () => window.closeOverlay(overlay);
+
+  overlay.querySelector('#confirm-order').onclick = async () => {
+    const name = $('#ch-name').value.trim();
+    const email = $('#ch-email').value.trim();
+    const mobile = $('#ch-mobile').value.trim();
+    const address = $('#ch-address').value.trim();
+    const city = $('#ch-city').value.trim();
+    const zip = $('#ch-zip').value.trim();
+
+    if (!name || !email || !mobile || !address || !city || !zip) return showAlert('Please fill out all fields.');
+
+    const configRes = await fetch("/api/config");
+    const configData = await configRes.json();
+
+    const rzpOptions = {
+      key: configData.razorpayKeyId,
+      amount: Math.round(subtotal * 100),
+      currency: "INR",
+      name: "Shobdotori Bookstore",
+      handler: async function (response) {
+        try {
+          const orderRes = await fetch("/api/orders", {
+            method: "POST",
+            headers: getHeaders(),
+            body: JSON.stringify({
+              customer: { name, email, mobile, address, city, zip },
+              items, subtotal, discount: 0, shipping: 0, total: subtotal,
+              paymentId: response.razorpay_payment_id
+            })
+          });
+          const ans = await orderRes.json();
+          if (ans.success) {
+            showAlert("Order placed successfully!");
+            cart = []; saveCart(); window.closeOverlay(overlay);
+          } else {
+            showAlert(ans.error);
+          }
+        } catch(e) { showAlert("Checkout error occurred."); }
+      }
+    };
+    new Razorpay(rzpOptions).open();
+  };
+};
+
+window.openTracking = async function() {
+  if (!currentUser) { openProfileOverlay(); return; }
+  const existing = document.querySelector('.full-page-overlay'); if (existing) existing.remove();
+  const overlay = document.createElement('div'); overlay.className = 'full-page-overlay';
+  overlay.innerHTML = `
+  <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+    <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
+      <h2 class="text-base font-bold text-gray-900">Tracking</h2>
+      <button id="close-tracking" class="close-btn">Close</button>
+    </div>
+    <div class="overlay-scroll p-5 space-y-4" id="orders-list">Loading orders...</div>
+  </div>`;
+
+  document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+  overlay.querySelector('#close-tracking').onclick = () => window.closeOverlay(overlay);
+
+  try {
+    const res = await fetch("/api/orders", { headers: getHeaders() });
+    const oData = await res.json();
+    const list = overlay.querySelector('#orders-list');
+    if (oData.length === 0) {
+      list.innerHTML = 'No active orders found.';
+    } else {
+      list.innerHTML = oData.map(o => `
+        <div class="border border-gray-100 rounded-2xl p-4 bg-white shadow-sm space-y-2">
+          <p class="font-bold text-xs">#${o.id.slice(-6).toUpperCase()} (${o.status.toUpperCase()})</p>
+          <p class="text-[10px] text-gray-400">Paid: ${formatPrice(o.total)}</p>
+        </div>`).join('');
+    }
+  } catch(e) { overlay.querySelector('#orders-list').innerHTML = 'Tracking unavailable.'; }
+};
+
+function renderCartOverlay() {
+  const existing = document.querySelector('#cart-overlay-page'); if (existing) existing.remove();
+  const overlay = document.createElement('div'); overlay.id = 'cart-overlay-page'; overlay.className = 'full-page-overlay';
+  overlay.innerHTML = `
+  <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+    <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
+      <h2 class="text-base font-bold text-gray-900">Your Bag</h2>
+      <button id="cart-close-overlay" class="close-btn">Close</button>
+    </div>
+    <div id="cart-items-list" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+    <div class="border-t p-5 bg-white sticky bottom-0 space-y-4">
+      <div class="flex justify-between items-center text-xs"><span>Subtotal</span><span id="cart-subtotal-overlay">₹0.00</span></div>
+      <button id="cart-checkout-all" class="w-full py-3.5 bg-black text-white rounded-xl font-bold text-xs">Checkout Entire Bag</button>
+    </div>
+  </div>`;
+
+  document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+  overlay.querySelector('#cart-close-overlay').onclick = () => window.closeOverlay(overlay);
+  
+  const container = overlay.querySelector('#cart-items-list');
+  const validCart = cart.filter(item => products.some(p => String(p.id) === String(item.id)));
+  
+  if (validCart.length === 0) {
+    container.innerHTML = '<p class="text-center py-16 text-xs text-gray-400">Your bag is empty.</p>';
+    overlay.querySelector('#cart-checkout-all').style.display = 'none';
+  } else {
+    container.innerHTML = validCart.map(item => {
+      const p = products.find(pr => String(pr.id) === String(item.id));
+      return `
+      <div class="flex gap-4 items-center bg-gray-50 rounded-2xl p-3 border">
+        <img src="${p.image||''}" class="custom-cart-wish-img">
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-bold text-gray-900 truncate">${p.name}</p>
+          <p class="text-[10px] text-gray-500 mt-0.5">${formatPrice(p.price)} &times; ${item.qty}</p>
+        </div>
+        <button class="text-red-500 text-xs remove-cart-item" data-id="${item.id}">Remove</button>
+      </div>`;
+    }).join('');
+
+    container.querySelectorAll('.remove-cart-item').forEach(b => b.onclick = () => {
+      cart = cart.filter(i => String(i.id) !== b.dataset.id); saveCart(); renderCartOverlay();
+    });
+
+    overlay.querySelector('#cart-checkout-all').onclick = () => {
+      window.closeOverlay(overlay);
+      const sub = validCart.reduce((s, i) => s + (products.find(pr => pr.id === i.id)?.price * i.qty), 0);
+      openCheckout(validCart, sub);
+    };
+  }
+  const sub = validCart.reduce((s, i) => s + (products.find(pr => pr.id === i.id)?.price * i.qty), 0);
+  overlay.querySelector('#cart-subtotal-overlay').textContent = formatPrice(sub);
+}
+
+function renderWishlistOverlay() {
+  const existing = document.querySelector('#wishlist-overlay-page'); if (existing) existing.remove();
+  const overlay = document.createElement('div'); overlay.id = 'wishlist-overlay-page'; overlay.className = 'full-page-overlay';
+  overlay.innerHTML = `
+  <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+    <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
+      <h2 class="text-base font-bold text-gray-900">Your Wishlist</h2>
+      <button id="wl-close-overlay" class="close-btn">Close</button>
+    </div>
+    <div id="wl-items-list" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+  </div>`;
+
+  document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+  overlay.querySelector('#wl-close-overlay').onclick = () => window.closeOverlay(overlay);
+  
+  const container = overlay.querySelector('#wl-items-list');
+  const validWishlist = wishlist.filter(id => products.some(p => String(p.id) === String(id)));
+  
+  if (validWishlist.length === 0) {
+    container.innerHTML = '<p class="text-center py-16 text-xs text-gray-400">Your wishlist is empty.</p>';
+  } else {
+    container.innerHTML = validWishlist.map(id => {
+      const p = products.find(pr => String(pr.id) === String(id));
+      return `
+      <div class="flex gap-4 items-center bg-gray-50 rounded-2xl p-3 border">
+        <img src="${p.image||''}" class="custom-cart-wish-img">
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-bold text-gray-900 truncate">${p.name}</p>
+          <p class="text-[10px] text-gray-500 mt-0.5">${formatPrice(p.price)}</p>
+        </div>
+        <button class="text-red-500 text-xs remove-wish-item" data-id="${p.id}">Remove</button>
+      </div>`;
+    }).join('');
+
+    container.querySelectorAll('.remove-wish-item').forEach(b => b.onclick = () => {
+      wishlist = wishlist.filter(i => i !== b.dataset.id); saveWishlist(); renderWishlistOverlay();
+    });
+  }
+}
+
+function openChatOverlay() {
+  const existing = document.querySelector('#chat-overlay-page'); if (existing) existing.remove();
+  const overlay = document.createElement('div'); overlay.id = 'chat-overlay-page'; overlay.className = 'full-page-overlay';
+  overlay.innerHTML = `
+  <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+    <div class="flex flex-col gap-3 px-5 py-4 border-b bg-white sticky top-0 z-10 shadow-sm">
+      <div class="flex items-center justify-between w-full">
+        <h2 class="text-sm font-bold text-gray-900" id="chat-header-title">AI Book Assistant</h2>
+        <button id="chat-close-overlay" class="close-btn">Close</button>
+      </div>
+      <div class="flex gap-2 p-1 bg-gray-100 rounded-2xl w-full max-w-md mx-auto">
+        <button id="chat-tab-admin" class="flex-1 py-2 text-xs font-bold rounded-xl transition-all bg-transparent text-gray-500">Chat With Admin</button>
+        <button id="chat-tab-ai" class="flex-1 py-2 text-xs font-bold rounded-xl transition-all bg-purple-600 text-white">AI Assistant</button>
+      </div>
+    </div>
+    <div id="chat-messages-area" class="flex-1 overflow-y-auto p-5 bg-gray-50/50 space-y-3.5"></div>
+    <div class="border-t p-3 bg-white sticky bottom-0">
+      <div class="flex gap-2 items-center bg-gray-50 rounded-xl px-3 py-1 border">
+        <input id="chat-input-overlay" placeholder="Send a message..." class="flex-1 bg-transparent py-2 outline-none text-xs text-gray-900">
+        <button id="send-msg-overlay" class="w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">Send</button>
+      </div>
+    </div>
+  </div>`;
+
+  document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+  overlay.querySelector('#chat-close-overlay').onclick = () => window.closeOverlay(overlay);
+  
+  const cont = overlay.querySelector('#chat-messages-area');
+  const tabAdmin = overlay.querySelector('#chat-tab-admin');
+  const tabAi = overlay.querySelector('#chat-tab-ai');
+  
+  let mode = 'ai'; let aiHistory = [];
+
+  const renderAiChat = () => {
+    cont.innerHTML = aiHistory.map(m => `
+      <div class="flex ${m.role === 'assistant' ? 'justify-start' : 'justify-end'}">
+        <div class="max-w-[80%] px-4 py-3 rounded-2xl text-xs ${m.role === 'assistant' ? 'bg-white text-gray-800' : 'bg-purple-600 text-white'} shadow-sm">
+          ${m.content}
+        </div>
+      </div>`).join('');
+    cont.scrollTop = cont.scrollHeight;
+  };
+
+  tabAdmin.onclick = () => {
+    if (!currentUser) return showAlert("Please log in first.");
+    mode = 'admin';
+    tabAdmin.className = "flex-1 py-2 text-xs font-bold rounded-xl transition-all bg-purple-600 text-white";
+    tabAi.className = "flex-1 py-2 text-xs font-bold rounded-xl transition-all bg-transparent text-gray-500";
+    cont.innerHTML = 'Connecting to Admin live desk...';
+  };
+
+  tabAi.onclick = () => {
+    mode = 'ai';
+    tabAi.className = "flex-1 py-2 text-xs font-bold rounded-xl transition-all bg-purple-600 text-white";
+    tabAdmin.className = "flex-1 py-2 text-xs font-bold rounded-xl transition-all bg-transparent text-gray-500";
+    renderAiChat();
+  };
+
+  const sendMessage = async () => {
+    const text = overlay.querySelector('#chat-input-overlay').value.trim(); if (!text) return;
+    overlay.querySelector('#chat-input-overlay').value = '';
+    
+    if (mode === 'ai') {
+      aiHistory.push({ role: 'user', content: text }); renderAiChat();
+      try {
+        const response = await fetch("/api/chat/message", {
+          method: "POST",
+          headers: getHeaders(),
+          body: JSON.stringify({ mode, history: aiHistory })
+        });
+        const ans = await response.json();
+        if (ans.success) {
+          aiHistory.push({ role: 'assistant', content: ans.text });
+        } else {
+          aiHistory.push({ role: 'assistant', content: 'Connection timed out.' });
+        }
+      } catch(e) { aiHistory.push({ role: 'assistant', content: 'Connection timed out.' }); }
+      renderAiChat();
+    } else {
+      try {
+        await fetch("/api/chat/message", {
+          method: "POST",
+          headers: getHeaders(),
+          body: JSON.stringify({ mode, text, userId: currentUser.uid })
+        });
+        cont.innerHTML += `<div class="flex justify-end"><div class="bg-purple-600 text-white px-4 py-3 rounded-2xl text-xs">${text}</div></div>`;
+      } catch(e) {}
+    }
+  };
+
+  overlay.querySelector('#send-msg-overlay').onclick = sendMessage;
+};
+
+window.openProfileOverlay = function() {
+  const existing = document.querySelector('.full-page-overlay'); if (existing) existing.remove();
+  const overlay = document.createElement('div'); overlay.className = 'full-page-overlay';
+  
+  if (currentUser) {
+    overlay.innerHTML = `
+    <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+      <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
+        <h2 class="text-base font-bold text-gray-900 font-serif">Account</h2>
+        <button id="close-profile" class="close-btn">Close</button>
+      </div>
+      <div class="overlay-scroll p-6 space-y-6 text-left">
+        <div class="bg-purple-50 rounded-2xl p-6 border flex items-center gap-4">
+          <div class="font-bold text-slate-950">${currentUser.name || 'Member'} (${currentUser.email})</div>
+        </div>
+        <button id="do-logout" class="w-full py-3 border border-red-200 text-red-600 rounded-xl text-xs font-bold transition-all">Log Out</button>
+      </div>
+    </div>`;
+
+    document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+    overlay.querySelector('#close-profile').onclick = () => window.closeOverlay(overlay);
+    overlay.querySelector('#do-logout').onclick = () => {
+      localStorage.removeItem('shobdotori_user'); currentUser = null;
+      updateProfileUI(); window.closeOverlay(overlay); showAlert("Logged out successfully.");
+    };
+  } else {
+    overlay.innerHTML = `
+    <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+      <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
+        <h2 class="text-base font-bold text-gray-900">Login</h2>
+        <button id="close-profile-overlay" class="close-btn">Close</button>
+      </div>
+      <div class="overlay-scroll p-6 space-y-4 text-left">
+        <input id="login-email" type="email" placeholder="example@shobdotori.com" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+        <input id="login-pass" type="password" placeholder="Password" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+        <button id="do-login" class="w-full py-3 bg-black text-white rounded-xl text-xs font-semibold">Login</button>
+        <button id="signup-link" class="w-full text-xs text-center text-gray-500 underline">Create Account</button>
+      </div>
+    </div>`;
+
+    document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+    overlay.querySelector('#close-profile-overlay').onclick = () => window.closeOverlay(overlay);
+    
+    overlay.querySelector('#do-login').onclick = async () => {
+      const email = $('#login-email').value.trim();
+      const password = $('#login-pass').value.trim();
+      try {
+        const res = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: getHeaders(),
+          body: JSON.stringify({ email, password })
+        });
+        const ans = await res.json();
+        if (ans.success) {
+          if (ans.needsVerification) {
+            window.closeOverlay(overlay); openOtpVerificationOverlay(email, ans.name);
+          } else {
+            currentUser = { uid: ans.uid, email, name: ans.user.name };
+            localStorage.setItem('shobdotori_user', JSON.stringify(currentUser));
+            updateProfileUI(); window.closeOverlay(overlay); showAlert("Login successful!");
+          }
+        } else {
+          showAlert(ans.error);
+        }
+      } catch(e) { showAlert("Authorization failure."); }
+    };
+
+    overlay.querySelector('#signup-link').onclick = () => { window.closeOverlay(overlay); openSignupOverlay(); };
+  }
+};
+
+window.openSignupOverlay = function() {
+  const existing = document.querySelector('.full-page-overlay'); if (existing) existing.remove();
+  const overlay = document.createElement('div'); overlay.className = 'full-page-overlay';
+  overlay.innerHTML = `
+  <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+    <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
+      <h2 class="text-base font-bold text-gray-900">Create Account</h2>
+      <button id="close-signup" class="close-btn">Close</button>
+    </div>
+    <div class="overlay-scroll p-6 space-y-4 text-left">
+      <input id="su-name" placeholder="Full Name" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+      <input id="su-email" type="email" placeholder="Email" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+      <input id="su-pass" type="password" placeholder="Password" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+      <button id="do-signup" class="w-full py-3 bg-black text-white rounded-xl text-xs font-semibold">Sign Up</button>
+    </div>
+  </div>`;
+
+  document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+  overlay.querySelector('#close-signup').onclick = () => window.closeOverlay(overlay);
+
+  overlay.querySelector('#do-signup').onclick = async () => {
+    const name = $('#su-name').value.trim();
+    const email = $('#su-email').value.trim();
+    const password = $('#su-pass').value.trim();
+    
+    try {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: getHeaders(),
+        body: JSON.stringify({ name, email, password })
+      });
+      const ans = await res.json();
+      if (ans.success) {
+        window.closeOverlay(overlay); openOtpVerificationOverlay(email, name);
+      } else {
+        showAlert(ans.error);
+      }
+    } catch(e) { showAlert("Signup execution error."); }
+  };
+};
+
+window.openOtpVerificationOverlay = function(email, name) {
+  const existing = document.querySelector('.full-page-overlay'); if (existing) existing.remove();
+  const overlay = document.createElement('div'); overlay.className = 'full-page-overlay';
+  overlay.innerHTML = `
+  <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
+    <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
+      <h2 class="text-base font-bold text-gray-900">Email Activation</h2>
+      <button id="close-otp" class="close-btn">Close</button>
+    </div>
+    <div class="overlay-scroll p-6 space-y-4 text-center">
+      <input id="otp-code" type="text" maxlength="6" placeholder="Enter 6-digit OTP" class="w-full text-center px-4 py-3 border rounded-xl text-xs outline-none">
+      <button id="verify-otp-btn" class="w-full py-3 bg-purple-600 text-white rounded-xl text-xs font-bold">Verify Code</button>
+      <button id="resend-otp-btn" class="w-full py-2.5 border rounded-xl text-xs">Resend Code</button>
+    </div>
+  </div>`;
+
+  document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
+  overlay.querySelector('#close-otp').onclick = () => window.closeOverlay(overlay);
+
+  overlay.querySelector('#verify-otp-btn').onclick = async () => {
+    const code = overlay.querySelector('#otp-code').value.trim();
+    try {
+      const res = await fetch("/api/auth/verify", {
+        method: "POST",
+        headers: getHeaders(),
+        body: JSON.stringify({ email, code })
+      });
+      const ans = await res.json();
+      if (ans.success) {
+        currentUser = { uid: ans.uid, email, name: ans.user.name };
+        localStorage.setItem('shobdotori_user', JSON.stringify(currentUser));
+        updateProfileUI(); window.closeOverlay(overlay); showAlert("Email verified successfully!");
+        await loadAllData();
+      } else {
+        showAlert(ans.error);
+      }
+    } catch(e) { showAlert("Verification failed."); }
+  };
+
+  overlay.querySelector('#resend-otp-btn').onclick = async () => {
+    try {
+      const res = await fetch("/api/auth/resend-otp", {
+        method: "POST",
+        headers: getHeaders(),
+        body: JSON.stringify({ email })
+      });
+      const ans = await res.json();
+      if (ans.success) showAlert("A fresh OTP code has been dispatched.");
+      else showAlert(ans.error);
+    } catch(e) {}
+  };
+};
+
+function setupUI() {
+  $('#cart-btn').onclick = renderCartOverlay;
+  $('#wishlist-btn').onclick = renderWishlistOverlay;
+  $('#chat-btn').onclick = openChatOverlay;
+  $('#track-btn').onclick = window.openTracking;
+  $('#profile-btn').onclick = window.openProfileOverlay;
+}
+
+function updateProfileUI() {
+  const badge = $('#user-profile-badge');
+  if (currentUser) badge?.classList.remove('hidden');
+  else badge?.classList.add('hidden');
+}
+
+function showAlert(msg) {
+  const existing = document.querySelector('.alert-modal-container'); if (existing) existing.remove();
+  const container = document.createElement('div'); container.className = 'alert-modal-container';
+  container.innerHTML = `
+    <div class="alert-modal-bg"></div>
+    <div class="alert-modal-content">
+      <p class="text-sm mb-4 font-semibold text-gray-800">${msg}</p>
+      <button class="close-btn close-alert">Dismiss</button>
+    </div>`;
+  document.body.appendChild(container);
+  setTimeout(() => container.querySelector('.alert-modal-bg').classList.add('active'), 10);
+  
+  const closeAlert = () => {
+    container.querySelector('.alert-modal-content').classList.add('closing');
+    container.querySelector('.alert-modal-bg').classList.remove('active');
+    setTimeout(() => container.remove(), 260);
+  };
+  container.querySelector('.close-alert').onclick = closeAlert;
+}
+
+function observeReveal() {
+  if (revealObserver) revealObserver.disconnect();
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+}
+
+function updateCartBadge() {
+  const c = $('#cart-count'); if (!c) return;
+  const count = cart.length; c.textContent = count;
+  c.style.display = count ? 'flex' : 'none';
+}
+function updateWishlistBadge() {
+  const c = $('#wishlist-count'); if (!c) return;
+  const count = wishlist.length; c.textContent = count;
+  c.style.display = count ? 'flex' : 'none';
+}
+
+async function init() {
+  setupUI(); updateProfileUI();
+  
+  const pending = localStorage.getItem('shobdotori_pending_email');
+  if (pending) {
+    window.openOtpVerificationOverlay(pending, "Customer");
+  }
+
+  await loadAllData();
+}
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

@@ -3,14 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  
+  <!-- 📌 SENIOR SEO OPTIMIZATIONS -->
   <title id="seo-title">Shobdotori Premium Store | Curated Bookstore & AI Literary Assistant</title>
   <meta name="description" id="seo-desc" content="Discover Shobdotori Premium Store, your premier literary haven. Browse curated books, track order delivery live, and interact with our automated AI Book Assistant.">
   <meta name="keywords" content="bookstore, curated books, Shobdotori, AI book assistant, online books, buy novels, literary haven">
-  
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link rel="canonical" href="https://client-vi.vercel.app">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://client-vi.vercel.app">
+  <meta property="og:title" content="Shobdotori Premium Store | Curated Bookstore">
+  <meta property="og:description" content="Discover premium curated book collections, live order tracking, and interactive AI assistance.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://client-vi.vercel.app">
+  <meta property="twitter:title" content="Shobdotori Premium Store">
+  <meta property="twitter:description" content="Selected premium collections direct to your bookshelf with conversational AI assistance.">
+  <meta property="twitter:image" content="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BookStore",
+    "name": "Shobdotori Premium Store",
+    "description": "Your premier literary haven for curated book collections and personalized AI assistance.",
+    "url": "https://client-vi.vercel.app",
+    "logo": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=200&q=80",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <!-- External Library Optimization (Preload and Async) -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
   <script src="https://cdn.tailwindcss.com" defer></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- FontAwesome Preload -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-white text-gray-900">
@@ -20,29 +58,34 @@
   <div class="max-w-7xl mx-auto px-3 sm:px-5 w-full flex items-center justify-between">
     <a href="#" class="text-lg sm:text-xl font-semibold tracking-tight text-black font-serif">Shobdotori</a>
     <div class="flex items-center gap-4 sm:gap-5">
+      
+      <!-- Wishlist Button -->
       <button id="wishlist-btn" class="relative text-gray-700 hover:text-black transition-colors" aria-label="Open Wishlist Panel">
         <span id="wishlist-count" class="absolute -top-1 -right-1.5 h-4 w-4 items-center justify-center rounded-full bg-gray-800 text-white text-[9px] font-bold hidden">0</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
         </svg>
       </button>
 
+      <!-- Cart Button -->
       <button id="cart-btn" class="relative text-gray-700 hover:text-black transition-colors" aria-label="Open Cart Panel">
         <span id="cart-count" class="absolute -top-1 -right-1.5 h-4 w-4 items-center justify-center rounded-full bg-gray-800 text-white text-[9px] font-bold hidden">0</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
         </svg>
       </button>
 
+      <!-- Tracking Button -->
       <button id="track-btn" class="text-gray-700 hover:text-black transition-colors" aria-label="Track Active Deliveries">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0zM13 11V7a1 1 0 00-1-1H3a1 1 0 00-1 1v7m11-3h3l3 3v2h-8m-4 0h6m-12 0h2"></path>
         </svg>
       </button>
 
+      <!-- Profile Button -->
       <button id="profile-btn" class="relative text-gray-700 hover:text-black transition-colors focus:outline-none" aria-label="Open User Account Panel">
         <span id="user-profile-badge" class="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-purple-600 hidden" aria-hidden="true"></span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-5 h-5">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-5 h-5" aria-hidden="true">
             <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="3"/>
             <circle cx="32" cy="24" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
             <path d="M16 50c0-8.8 7.2-16 16-16s16 7.2 16 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
@@ -52,11 +95,19 @@
   </div>
 </header>
 
-<!-- LOADING SKELETON / MAIN VIEWPORT -->
+<!-- LOADING SKELETON -->
 <main id="main-content">
   <div class="mt-2 space-y-4">
     <div class="skeleton-banner skeleton-bg"></div>
     <div class="skeleton-grid">
+      <div class="bg-[#F7F5FF] rounded-2xl overflow-hidden p-2">
+        <div class="h-28 sm:h-32 skeleton-bg rounded-xl mb-2"></div>
+        <div class="space-y-1.5">
+          <div class="h-4 skeleton-bg rounded w-3/4"></div>
+          <div class="h-3 skeleton-bg rounded w-1/2"></div>
+        </div>
+        <div class="h-8 skeleton-bg rounded-lg mt-2"></div>
+      </div>
       <div class="bg-[#F7F5FF] rounded-2xl overflow-hidden p-2">
         <div class="h-28 sm:h-32 skeleton-bg rounded-xl mb-2"></div>
         <div class="space-y-1.5">
@@ -77,7 +128,9 @@
         <a href="#" class="text-xl font-semibold font-serif">Shobdotori</a>
         <p class="text-xs text-gray-400 mt-2">Premium Curated Bookstore Experience.</p>
       </div>
+      
       <div class="flex gap-4 flex-wrap justify-center my-3" id="footer-social-container"></div>
+
       <div class="flex gap-6 text-xs text-gray-400">
         <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
         <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
@@ -89,8 +142,9 @@
   </div>
 </footer>
 
+<!-- FLOATING CHAT BUTTON -->
 <button id="chat-btn" class="fixed bottom-10 right-6 z-40 w-14 h-14 bg-purple-600 hover:bg-purple-700 hover:scale-110 active:scale-95 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300" aria-label="Open AI Assistant">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7 text-white" fill="none">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7 text-white" fill="none" aria-hidden="true">
     <path d="M7 4C5.343 4 4 5.343 4 7V13C4 14.657 5.343 16 7 16H8V20L12.5 16H17C18.657 16 20 14.657 20 13V7C20 5.343 18.657 4 17 4H7Z" fill="currentColor"/>
     <rect x="8" y="8" width="8" height="1.5" rx="0.75" fill="white"/>
     <rect x="8" y="11" width="6" height="1.5" rx="0.75" fill="white"/>
@@ -101,13 +155,13 @@
 // ==========================================
 // CLIENT-SIDE WEB CONTROLLER
 // ==========================================
-const API_BASE = "https://client-vi.vercel.app"; // Your backend deployment link
+const API_BASE = "https://client-vi.vercel.app";
 
 let products = [], categories = [], categoryMap = {}, activeCategory = 'all';
 let cart = JSON.parse(localStorage.getItem('shobdotori_cart') || '[]');
 let wishlist = JSON.parse(localStorage.getItem('shobdotori_wishlist') || '[]');
 let currentUser = JSON.parse(localStorage.getItem('shobdotori_user') || 'null');
-let revealObserver = null; // Defined to fix the 'revealObserver is not defined' error
+let revealObserver = null;
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
@@ -152,11 +206,11 @@ async function loadFooterSocials() {
     const res = await fetch(API_BASE + "/api/socials");
     const data = await res.json();
     let html = '';
-    if (data.facebook) html += `<a href="${data.facebook}" target="_blank" class="social-bubble social-bubble-facebook"><i class="fab fa-facebook-f text-black"></i></a>`;
-    if (data.instagram) html += `<a href="${data.instagram}" target="_blank" class="social-bubble social-bubble-instagram"><i class="fab fa-instagram text-black"></i></a>`;
-    if (data.twitter) html += `<a href="${data.twitter}" target="_blank" class="social-bubble social-bubble-twitter"><i class="fab fa-twitter-x text-black"></i></a>`;
-    if (data.linkedin) html += `<a href="${data.linkedin}" target="_blank" class="social-bubble social-bubble-linkedin"><i class="fab fa-linkedin-in text-black"></i></a>`;
-    if (data.telegram) html += `<a href="${data.telegram}" target="_blank" class="social-bubble social-bubble-telegram"><i class="fab fa-telegram-plane text-black"></i></a>`;
+    if (data.facebook) html += `<a href="${data.facebook}" target="_blank" rel="noopener" class="social-bubble social-bubble-facebook" aria-label="Facebook"><i class="fab fa-facebook-f text-black" aria-hidden="true"></i></a>`;
+    if (data.instagram) html += `<a href="${data.instagram}" target="_blank" rel="noopener" class="social-bubble social-bubble-instagram" aria-label="Instagram"><i class="fab fa-instagram text-black" aria-hidden="true"></i></a>`;
+    if (data.twitter) html += `<a href="${data.twitter}" target="_blank" rel="noopener" class="social-bubble social-bubble-twitter" aria-label="Twitter"><i class="fab fa-twitter-x text-black" aria-hidden="true"></i></a>`;
+    if (data.linkedin) html += `<a href="${data.linkedin}" target="_blank" rel="noopener" class="social-bubble social-bubble-linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-black" aria-hidden="true"></i></a>`;
+    if (data.telegram) html += `<a href="${data.telegram}" target="_blank" rel="noopener" class="social-bubble social-bubble-telegram" aria-label="Telegram"><i class="fab fa-telegram-plane text-black" aria-hidden="true"></i></a>`;
     container.innerHTML = html;
   } catch (err) { console.error('Error rendering socials: ', err); }
 }
@@ -179,7 +233,7 @@ function getRatingStarsHTML(rating) {
   if (!rating) return '';
   let stars = '';
   for (let i = 1; i <= 5; i++) {
-    stars += `<i class="${i <= Math.round(rating) ? 'fa-solid fa-star text-yellow-400' : 'fa-regular fa-star text-gray-300'} text-[10px]"></i>`;
+    stars += `<i class="${i <= Math.round(rating) ? 'fa-solid fa-star text-yellow-400' : 'fa-regular fa-star text-gray-300'} text-[10px]" aria-hidden="true"></i>`;
   }
   return `<div class="flex items-center gap-0.5 justify-center mt-1">${stars} <span class="text-[9px] text-gray-500 font-medium ml-1">(${Number(rating).toFixed(1)})</span></div>`;
 }
@@ -201,7 +255,7 @@ function productCard(product) {
       </div>
       ${product.averageRating ? getRatingStarsHTML(product.averageRating) : ''}
     </div>
-    <button class="mt-2 w-full py-2 bg-black hover:bg-gray-800 text-white rounded-lg text-[10px] sm:text-xs font-semibold transition-all flex items-center justify-center gap-1 add-to-cart-btn" data-id="${product.id}">
+    <button class="mt-2 w-full py-2 bg-black hover:bg-gray-800 text-white rounded-lg text-[10px] sm:text-xs font-semibold transition-all flex items-center justify-center gap-1 add-to-cart-btn" data-id="${product.id}" aria-label="Add ${product.name} to Cart">
       <span class="btn-text">Add to Cart</span>
     </button>
   </div>`;
@@ -238,12 +292,13 @@ function renderMainView() {
   <section class="relative w-full rounded-2xl sm:rounded-3xl h-[280px] sm:h-[480px] lg:h-[580px] overflow-hidden mt-2 shadow-lg ring-1 ring-black/5 isolate">
     <div class="absolute inset-0 bg-[#F3F0FF] overflow-hidden">
       <div class="absolute top-[-15%] right-[-10%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] rounded-full bg-gradient-to-b from-purple-300 via-indigo-300 to-transparent blur-[100px] opacity-60 animate-float-slow mix-blend-multiply"></div>
+      <div class="absolute bottom-[-10%] left-[-10%] w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] rounded-full bg-gradient-to-tr from-violet-400 via-fuchsia-200 to-blue-200 blur-[80px] opacity-50 animate-float-medium mix-blend-multiply"></div>
     </div>
     <div class="absolute inset-0 flex items-center justify-center text-center px-4">
       <div class="max-w-md sm:max-w-xl reveal-on-scroll">
         <h1 class="text-2xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 tracking-tighter mb-3">Your Premier Literary Haven</h1>
         <p class="text-xs sm:text-base text-gray-600 max-w-xs sm:max-w-lg mx-auto mb-5">Selected collections and titles direct to your bookshelf.</p>
-        <a href="#products" class="inline-flex items-center gap-2.5 bg-white text-gray-900 pl-6 pr-4 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform active:scale-95">
+        <a href="#products" class="inline-flex items-center gap-2.5 bg-white text-gray-900 pl-6 pr-4 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform active:scale-95" aria-label="Browse Collection">
           <span class="text-sm sm:text-base font-extrabold tracking-tight">Shop Collection</span>
           <svg viewBox="0 0 48 48" class="w-4 h-4 text-gray-800"><path d="M16 10L32 24L16 38" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -253,9 +308,9 @@ function renderMainView() {
   <section id="products" class="mt-10 sm:mt-14">
     <h2 class="text-lg sm:text-2xl font-semibold text-gray-900 reveal-on-scroll mb-3">Discover Collection</h2>
     <div class="mb-5 relative reveal-on-scroll">
-      <input type="text" id="product-search" placeholder="Search by book title, author name or keywords..." class="w-full px-4 py-3 pr-10 border border-gray-100 bg-gray-50/50 rounded-2xl text-xs outline-none cursor-pointer" readonly>
+      <input type="text" id="product-search" placeholder="Search by book title, author name or keywords..." class="w-full px-4 py-3 pr-10 border border-gray-100 bg-gray-50/50 rounded-2xl text-xs outline-none cursor-pointer" aria-label="Search bookstore products" readonly>
       <span class="absolute right-3.5 top-3.5 text-gray-400">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
       </span>
     </div>
     <div class="flex flex-nowrap gap-1.5 mb-4 overflow-x-auto no-scrollbar pb-1 w-full" id="category-tabs">
@@ -286,7 +341,7 @@ window.openSearchOverlay = function() {
   overlay.innerHTML = `
   <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
     <div class="flex items-center gap-3 px-5 py-4 border-b bg-white sticky top-0 z-10">
-      <input id="overlay-search-input" type="text" placeholder="Search books..." class="w-full px-4 py-3 pr-10 border border-purple-100 bg-purple-50/20 rounded-2xl text-xs outline-none">
+      <input id="overlay-search-input" type="text" placeholder="Search books..." class="w-full px-4 py-3 pr-10 border border-purple-100 bg-purple-50/20 rounded-2xl text-xs outline-none" aria-label="Enter search queries">
       <button id="close-search-overlay" class="close-btn">Close</button>
     </div>
     <div class="flex-1 overflow-y-auto p-5 bg-white">
@@ -306,7 +361,7 @@ window.openSearchOverlay = function() {
     const filtered = products.filter(p => p.name.toLowerCase().includes(q) || (p.author && p.author.toLowerCase().includes(q)));
     grid.innerHTML = filtered.map(p => `
       <div class="group cursor-pointer hover-lift text-center" onclick="window.goToProductDetail('${p.id}')">
-        <div class="book-cover-wrap mb-1.5 shadow-sm"><img src="${p.image||''}" class="book-cover-img"></div>
+        <div class="book-cover-wrap mb-1.5 shadow-sm"><img src="${p.image||''}" alt="${p.name}" class="book-cover-img" loading="lazy"></div>
         <h3 class="text-[10px] sm:text-xs font-semibold text-gray-900">${p.name}</h3>
       </div>`).join('');
   };
@@ -324,10 +379,10 @@ window.goToProductDetail = async function(id) {
       <button id="close-product-overlay" class="close-btn">Close</button>
     </div>
     <div class="overlay-scroll pb-10 px-6 py-6 space-y-5">
-      <div class="book-cover-wrap max-w-[240px] mx-auto shadow-md"><img src="${product.image||''}" class="book-cover-img"></div>
+      <div class="book-cover-wrap max-w-[240px] mx-auto shadow-md"><img src="${product.image||''}" alt="${product.name}" class="book-cover-img" loading="lazy"></div>
       <div class="flex justify-between items-start">
         <h1 class="text-xl font-serif font-bold text-gray-900">${product.name}</h1>
-        <button id="overlay-wishlist" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100"><i class="fa-solid fa-heart ${isWish?'text-red-500':'text-gray-400'}"></i></button>
+        <button id="overlay-wishlist" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100" aria-label="Toggle Wishlist"><i class="fa-solid fa-heart ${isWish?'text-red-500':'text-gray-400'}" aria-hidden="true"></i></button>
       </div>
       <p class="text-2xl font-bold text-gray-900">${formatPrice(product.price)}</p>
       <div class="border-t pt-4 text-xs space-y-1">
@@ -340,8 +395,8 @@ window.goToProductDetail = async function(id) {
         <div id="compiled-product-reviews" class="space-y-3 text-xs text-gray-400">Loading reviews...</div>
         <div id="submission-review-box" class="mt-4 p-4 bg-gray-50 rounded-2xl border border-gray-100 hidden">
           <p class="text-xs font-bold mb-2">Write feedback</p>
-          <input type="number" id="review-rating-input" min="1" max="5" placeholder="Rating (1-5)" class="w-full p-2 border rounded-xl text-xs mb-2">
-          <textarea id="review-comment-input" rows="3" placeholder="Review details..." class="w-full p-3 border rounded-xl text-xs outline-none bg-white"></textarea>
+          <input type="number" id="review-rating-input" min="1" max="5" placeholder="Rating (1-5)" class="w-full p-2 border rounded-xl text-xs mb-2" aria-label="Review rating number from 1 to 5">
+          <textarea id="review-comment-input" rows="3" placeholder="Review details..." class="w-full p-3 border rounded-xl text-xs outline-none bg-white" aria-label="Review detailed feedback text box"></textarea>
           <button id="post-review-btn" class="mt-2 w-full py-2.5 bg-black text-white rounded-xl text-xs font-semibold">Submit</button>
         </div>
       </div>
@@ -353,7 +408,10 @@ window.goToProductDetail = async function(id) {
   </div>`;
 
   document.body.appendChild(overlay); document.body.style.overflow = 'hidden';
-  overlay.querySelector('#close-product-overlay').onclick = () => window.closeOverlay(overlay);
+  overlay.querySelector('#close-product-overlay').onclick = () => {
+    document.title = "Shobdotori Premium Store | Curated Bookstore & AI Literary Assistant";
+    window.closeOverlay(overlay);
+  };
   
   const wishBtn = overlay.querySelector('#overlay-wishlist');
   wishBtn.onclick = () => {
@@ -419,7 +477,7 @@ window.openCheckout = async function(items, subtotal) {
     const p = products.find(prod => prod.id === item.id);
     return p ? `
       <div class="checkout-item flex gap-3 items-center bg-gray-50 rounded-xl p-3" data-id="${p.id}" data-price="${p.price}">
-        <img src="${p.image||''}" class="custom-cart-wish-img">
+        <img src="${p.image||''}" alt="${p.name}" class="custom-cart-wish-img" loading="lazy">
         <div class="flex-1"><p class="text-xs font-medium text-gray-900">${p.name}</p>
           <div class="flex items-center gap-2 mt-1"><span class="text-[10px] text-gray-500">Qty: ${item.qty}</span></div>
         </div>
@@ -437,13 +495,13 @@ window.openCheckout = async function(items, subtotal) {
       <div class="space-y-2.5">${itemsHtml}</div>
       <div class="space-y-3 pt-3 border-t">
         <p class="text-xs font-bold uppercase tracking-wider text-gray-400">Shipping Details</p>
-        <input id="ch-name" placeholder="Full Name" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
-        <input id="ch-email" type="email" placeholder="Email" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
-        <input id="ch-mobile" type="tel" placeholder="Mobile Number" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
-        <input id="ch-address" placeholder="Address" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+        <input id="ch-name" placeholder="Full Name" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping recipient full name">
+        <input id="ch-email" type="email" placeholder="Email" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping email address">
+        <input id="ch-mobile" type="tel" placeholder="Mobile Number" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping mobile contact number">
+        <input id="ch-address" placeholder="Address" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping street address">
         <div class="flex gap-2">
-          <input id="ch-city" placeholder="City" class="w-1/2 px-4 py-3 border rounded-xl text-xs outline-none">
-          <input id="ch-zip" placeholder="Pincode" class="w-1/2 px-4 py-3 border rounded-xl text-xs outline-none">
+          <input id="ch-city" placeholder="City" class="w-1/2 px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping city locality">
+          <input id="ch-zip" placeholder="Pincode" class="w-1/2 px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping pin code ZIP">
         </div>
       </div>
       <div class="space-y-2 pt-3 border-t">
@@ -563,12 +621,12 @@ function renderCartOverlay() {
       const p = products.find(pr => String(pr.id) === String(item.id));
       return `
       <div class="flex gap-4 items-center bg-gray-50 rounded-2xl p-3 border">
-        <img src="${p.image||''}" class="custom-cart-wish-img">
+        <img src="${p.image||''}" alt="${p.name}" class="custom-cart-wish-img" loading="lazy">
         <div class="flex-1 min-w-0">
           <p class="text-xs font-bold text-gray-900 truncate">${p.name}</p>
           <p class="text-[10px] text-gray-500 mt-0.5">${formatPrice(p.price)} &times; ${item.qty}</p>
         </div>
-        <button class="text-red-500 text-xs remove-cart-item" data-id="${item.id}">Remove</button>
+        <button class="text-red-500 text-xs remove-cart-item" data-id="${item.id}" aria-label="Remove item from cart">Remove</button>
       </div>`;
     }).join('');
 
@@ -611,12 +669,12 @@ function renderWishlistOverlay() {
       const p = products.find(pr => String(pr.id) === String(id));
       return `
       <div class="flex gap-4 items-center bg-gray-50 rounded-2xl p-3 border">
-        <img src="${p.image||''}" class="custom-cart-wish-img">
+        <img src="${p.image||''}" alt="${p.name}" class="custom-cart-wish-img" loading="lazy">
         <div class="flex-1 min-w-0">
           <p class="text-xs font-bold text-gray-900 truncate">${p.name}</p>
           <p class="text-[10px] text-gray-500 mt-0.5">${formatPrice(p.price)}</p>
         </div>
-        <button class="text-red-500 text-xs remove-wish-item" data-id="${p.id}">Remove</button>
+        <button class="text-red-500 text-xs remove-wish-item" data-id="${p.id}" aria-label="Remove item from wishlist">Remove</button>
       </div>`;
     }).join('');
 
@@ -644,7 +702,7 @@ function openChatOverlay() {
     <div id="chat-messages-area" class="flex-1 overflow-y-auto p-5 bg-gray-50/50 space-y-3.5"></div>
     <div class="border-t p-3 bg-white sticky bottom-0">
       <div class="flex gap-2 items-center bg-gray-50 rounded-xl px-3 py-1 border">
-        <input id="chat-input-overlay" placeholder="Send a message..." class="flex-1 bg-transparent py-2 outline-none text-xs text-gray-900">
+        <input id="chat-input-overlay" placeholder="Send a message..." class="flex-1 bg-transparent py-2 outline-none text-xs text-gray-900" aria-label="Write a chat message">
         <button id="send-msg-overlay" class="w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">Send</button>
       </div>
     </div>
@@ -752,8 +810,8 @@ window.openProfileOverlay = function() {
         <button id="close-profile-overlay" class="close-btn">Close</button>
       </div>
       <div class="overlay-scroll p-6 space-y-4 text-left">
-        <input id="login-email" type="email" placeholder="example@shobdotori.com" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
-        <input id="login-pass" type="password" placeholder="Password" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+        <input id="login-email" type="email" placeholder="example@shobdotori.com" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Login Account Email">
+        <input id="login-pass" type="password" placeholder="Password" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Login Account Password">
         <button id="do-login" class="w-full py-3 bg-black text-white rounded-xl text-xs font-semibold">Login</button>
         <button id="signup-link" class="w-full text-xs text-center text-gray-500 underline">Create Account</button>
       </div>
@@ -800,9 +858,9 @@ window.openSignupOverlay = function() {
       <button id="close-signup" class="close-btn">Close</button>
     </div>
     <div class="overlay-scroll p-6 space-y-4 text-left">
-      <input id="su-name" placeholder="Full Name" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
-      <input id="su-email" type="email" placeholder="Email" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
-      <input id="su-pass" type="password" placeholder="Password" class="w-full px-4 py-3 border rounded-xl text-xs outline-none">
+      <input id="su-name" placeholder="Full Name" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Sign up full name">
+      <input id="su-email" type="email" placeholder="Email" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Sign up email address">
+      <input id="su-pass" type="password" placeholder="Password" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Sign up account password">
       <button id="do-signup" class="w-full py-3 bg-black text-white rounded-xl text-xs font-semibold">Sign Up</button>
     </div>
   </div>`;
@@ -841,7 +899,7 @@ window.openOtpVerificationOverlay = function(email, name) {
       <button id="close-otp" class="close-btn">Close</button>
     </div>
     <div class="overlay-scroll p-6 space-y-4 text-center">
-      <input id="otp-code" type="text" maxlength="6" placeholder="Enter 6-digit OTP" class="w-full text-center px-4 py-3 border rounded-xl text-xs outline-none">
+      <input id="otp-code" type="text" maxlength="6" placeholder="Enter 6-digit OTP" class="w-full text-center px-4 py-3 border rounded-xl text-xs outline-none" aria-label="OTP verification activation code">
       <button id="verify-otp-btn" class="w-full py-3 bg-purple-600 text-white rounded-xl text-xs font-bold">Verify Code</button>
       <button id="resend-otp-btn" class="w-full py-2.5 border rounded-xl text-xs">Resend Code</button>
     </div>
@@ -880,7 +938,7 @@ window.openOtpVerificationOverlay = function(email, name) {
       const ans = await res.json();
       if (ans.success) showAlert("A fresh OTP code has been dispatched.");
       else showAlert(ans.error);
-    } catch(e) {}
+    } catch(e) { {} }
   };
 };
 

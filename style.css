@@ -1,6 +1,17 @@
-* { box-sizing: border-box; }
-html, body { max-width: 100vw; overflow-x: hidden; position: relative; }
+/* ==========================================================================
+   ১. CSS RESET & FOUC (FLASH OF UNSTYLED CONTENT) PREVENTION
+   ========================================================================== */
+* { 
+  box-sizing: border-box; 
+}
 
+html, body { 
+  max-width: 100vw; 
+  overflow-x: hidden; 
+  position: relative; 
+}
+
+/* FOUC Preventer: পেজ লোড হওয়ার শুরুতে অগোছালো ডিজাইন ফ্ল্যাশ হওয়া বন্ধ করবে */
 body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,46 +21,91 @@ body {
   width: 100%;
   overflow-x: hidden;
   opacity: 0;
-  transition: opacity 0.35s ease-out;
+  transition: opacity 0.35s ease-out; /* কন্টেন্ট লোড হলে মসৃণভাবে ফেড-ইন হবে */
 }
+
 body.ready {
   opacity: 1;
 }
 
-.font-serif { font-family: 'Playfair Display', serif; font-style: italic; }
+.font-serif { 
+  font-family: 'Playfair Display', serif; 
+  font-style: italic; 
+}
 
+/* ==========================================================================
+   ২. STRUCTURAL LAYOUTS & SKELETON PLACEHOLDERS (CLS অপ্টিমাইজেশন)
+   ========================================================================== */
 #main-content {
-  max-width: 80rem; margin-left: auto; margin-right: auto;
-  padding-left: 0.75rem; padding-right: 0.75rem; padding-bottom: 5rem;
-}
-@media (min-width: 640px) {
-  #main-content { padding-left: 1.25rem; padding-right: 1.25rem; }
-}
-.skeleton-banner {
-  width: 100%; height: 280px; border-radius: 1rem;
-}
-@media (min-width: 640px) {
-  .skeleton-banner { height: 480px; border-radius: 1.5rem; }
-}
-@media (min-width: 1024px) {
-  .skeleton-banner { height: 580px; }
-}
-.skeleton-grid {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; margin-top: 1rem;
-}
-@media (min-width: 640px) {
-  .skeleton-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.625rem; }
-}
-@media (min-width: 768px) {
-  .skeleton-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-}
-@media (min-width: 1024px) {
-  .skeleton-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-}
-@media (min-width: 1280px) {
-  .skeleton-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  max-width: 80rem; 
+  margin-left: auto; 
+  margin-right: auto;
+  padding-left: 0.75rem; 
+  padding-right: 0.75rem; 
+  padding-bottom: 5rem;
 }
 
+@media (min-width: 640px) {
+  #main-content { 
+    padding-left: 1.25rem; 
+    padding-right: 1.25rem; 
+  }
+}
+
+.skeleton-banner {
+  width: 100%; 
+  height: 280px; 
+  border-radius: 1rem;
+}
+
+@media (min-width: 640px) {
+  .skeleton-banner { 
+    height: 480px; 
+    border-radius: 1.5rem; 
+  }
+}
+
+@media (min-width: 1024px) {
+  .skeleton-banner { 
+    height: 580px; 
+  }
+}
+
+.skeleton-grid {
+  display: grid; 
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  gap: 0.5rem; 
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .skeleton-grid { 
+    grid-template-columns: repeat(4, minmax(0, 1fr)); 
+    gap: 0.625rem; 
+  }
+}
+
+@media (min-width: 768px) {
+  .skeleton-grid { 
+    grid-template-columns: repeat(5, minmax(0, 1fr)); 
+  }
+}
+
+@media (min-width: 1024px) {
+  .skeleton-grid { 
+    grid-template-columns: repeat(6, minmax(0, 1fr)); 
+  }
+}
+
+@media (min-width: 1280px) {
+  .skeleton-grid { 
+    grid-template-columns: repeat(7, minmax(0, 1fr)); 
+  }
+}
+
+/* ==========================================================================
+   ৩. REVEAL-ON-SCROLL ANIMATIONS (মসৃণ স্ক্রোলিং ট্রানজিশন)
+   ========================================================================== */
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(35px) scale(0.98);
@@ -59,12 +115,14 @@ body.ready {
               filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform, filter;
 }
+
 .reveal-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0px);
 }
 
+/* গ্লোবাল ট্রানজিশন এবং লিফ্ট অ্যানিমেশন */
 a, button, input, select, textarea, .group, .cat-tab {
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
               transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -73,17 +131,23 @@ a, button, input, select, textarea, .group, .cat-tab {
               box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 button:active, .cat-tab:active {
   transform: scale(0.96) !important;
 }
+
 .hover-lift {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .hover-lift:hover {
   transform: translateY(-6px) scale(1.015);
   box-shadow: 0 12px 28px -10px rgba(0,0,0,0.07);
 }
 
+/* ==========================================================================
+   ৪. BOOK COVER ASPECT RATIO (লেআউট শিফট প্রতিরোধে ৩:৪ অনুপাত)
+   ========================================================================== */
 .book-cover-wrap {
   aspect-ratio: 3 / 4;
   background-color: #f8fafc;
@@ -96,16 +160,21 @@ button:active, .cat-tab:active {
   border: 1px solid #f1f5f9;
   position: relative;
 }
+
 .book-cover-img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .book-cover-wrap:hover .book-cover-img {
   transform: scale(1.04);
 }
 
+/* ==========================================================================
+   ৫. SOCIAL BUBBLES FLOATING ANIMATION (উপর-নিচ তরঙ্গ অ্যানিমেশন)
+   ========================================================================== */
 @keyframes floatBubble {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-14px); }
@@ -123,9 +192,10 @@ button:active, .cat-tab:active {
   border-radius: 35% 65% 55% 45% / 50% 40% 60% 50% !important;
   box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: floatBubble 4s ease-in-out infinite;
+  animation: floatBubble 4s ease-in-out infinite; /* উপর-নিচ অ্যানিমেশন */
 }
 
+/* প্রতিটি বাবলের জন্য টাইমিং গ্যাপ (Natural Wave Effect) */
 .social-bubble:nth-child(1) { animation-delay: 0s; }
 .social-bubble:nth-child(2) { animation-delay: 0.3s; }
 .social-bubble:nth-child(3) { animation-delay: 0.6s; }
@@ -136,18 +206,22 @@ button:active, .cat-tab:active {
   border: 2.5px solid #00E5FF !important;
   box-shadow: 0 0 14px rgba(0, 229, 255, 0.3) !important;
 }
+
 .social-bubble-instagram {
   border: 2.5px solid #9C27B0 !important;
   box-shadow: 0 0 14px rgba(156, 39, 176, 0.3) !important;
 }
+
 .social-bubble-twitter {
   border: 2.5px solid #00E676 !important;
   box-shadow: 0 0 14px rgba(0, 230, 118, 0.3) !important;
 }
+
 .social-bubble-linkedin {
   border: 2.5px solid #FF5722 !important;
   box-shadow: 0 0 14px rgba(255, 87, 34, 0.3) !important;
 }
+
 .social-bubble-telegram {
   border: 2.5px solid #FF007F !important;
   box-shadow: 0 0 14px rgba(255, 0, 127, 0.3) !important;
@@ -155,7 +229,7 @@ button:active, .cat-tab:active {
 
 .social-bubble:hover {
   transform: translateY(-16px) scale(1.15) !important;
-  animation-play-state: paused;
+  animation-play-state: paused; /* হোভার করলে ভাসমান অবস্থা সাময়িক বন্ধ হবে */
   background: #ffffff !important;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
 }
@@ -175,18 +249,24 @@ button:active, .cat-tab:active {
   animation: shimmer 1.8s infinite;
 }
 
+/* ==========================================================================
+   ৬. OVERLAY MODALS & ANIMATION SYSTEM
+   ========================================================================== */
 @keyframes overlayOpen {
   0% { opacity: 0; transform: translateY(30px) scale(0.96); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
+
 @keyframes overlayClose {
   0% { opacity: 1; transform: translateY(0) scale(1); }
   100% { opacity: 0; transform: translateY(30px) scale(0.96); }
 }
+
 @keyframes alertOpen {
   0% { opacity: 0; transform: scale(0.9) translateY(12px); }
   100% { opacity: 1; transform: scale(1) translateY(0); }
 }
+
 @keyframes alertClose {
   0% { opacity: 1; transform: scale(1) translateY(0); }
   100% { opacity: 0; transform: scale(0.9) translateY(12px); }
@@ -207,6 +287,7 @@ button:active, .cat-tab:active {
   animation: overlayOpen 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform, opacity;
 }
+
 .full-page-overlay.closing {
   animation: overlayClose 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
@@ -219,6 +300,7 @@ button:active, .cat-tab:active {
   justify-content: center;
   z-index: 10000;
 }
+
 .alert-modal-bg {
   position: fixed;
   inset: 0;
@@ -227,9 +309,11 @@ button:active, .cat-tab:active {
   opacity: 0;
   transition: opacity 0.28s ease-out;
 }
+
 .alert-modal-bg.active {
   opacity: 1;
 }
+
 .alert-modal-content {
   background: white;
   border-radius: 1.5rem;
@@ -243,37 +327,64 @@ button:active, .cat-tab:active {
   opacity: 0;
   animation: alertOpen 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
+
 .alert-modal-content.closing {
   animation: alertClose 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
 
 .full-page-overlay .overlay-scroll {
-  flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  flex: 1; 
+  overflow-y: auto; 
+  -webkit-overflow-scrolling: touch;
 }
+
 .close-btn {
-  padding: 6px 14px; background: #ef4444; color: white; border-radius: 9999px;
-  font-size: 0.75rem; font-weight: 600; border: none; cursor: pointer;
+  padding: 6px 14px; 
+  background: #ef4444; 
+  color: white; 
+  border-radius: 9999px;
+  font-size: 0.75rem; 
+  font-weight: 600; 
+  border: none; 
+  cursor: pointer;
   box-shadow: 0 4px 12px rgba(239,68,68,0.25);
 }
+
 .floating { 
   animation: floatSubtle 4s ease-in-out infinite; 
   will-change: transform;
 }
+
 .cat-tab {
-  padding: 5px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 500;
-  cursor: pointer; background: #f3f4f6; color: #4b5563; white-space: nowrap;
+  padding: 5px 12px; 
+  border-radius: 9999px; 
+  font-size: 0.75rem; 
+  font-weight: 500;
+  cursor: pointer; 
+  background: #f3f4f6; 
+  color: #4b5563; 
+  white-space: nowrap;
 }
-.cat-tab.active { background: #1f2937; color: white; }
+
+.cat-tab.active { 
+  background: #1f2937; 
+  color: white; 
+}
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
 @media (max-width: 640px) {
-  body { padding-top: 50px; }
-  header { height: 50px; }
+  body { 
+    padding-top: 50px; 
+  }
+  header { 
+    height: 50px; 
+  }
 }

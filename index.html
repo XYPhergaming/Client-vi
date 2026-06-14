@@ -101,10 +101,13 @@
 // ==========================================
 // CLIENT-SIDE WEB CONTROLLER
 // ==========================================
+const API_BASE = "https://client-vi.vercel.app"; // Your backend deployment link
+
 let products = [], categories = [], categoryMap = {}, activeCategory = 'all';
 let cart = JSON.parse(localStorage.getItem('shobdotori_cart') || '[]');
 let wishlist = JSON.parse(localStorage.getItem('shobdotori_wishlist') || '[]');
 let currentUser = JSON.parse(localStorage.getItem('shobdotori_user') || 'null');
+let revealObserver = null; // Defined to fix the 'revealObserver is not defined' error
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
@@ -128,7 +131,10 @@ function getStockDisplay(stock) { return (stock === undefined || stock === null 
 
 async function loadAllData() {
   try {
-    const [pRes, cRes] = await Promise.all([fetch("/api/products"), fetch("/api/categories")]);
+    const [pRes, cRes] = await Promise.all([
+      fetch(API_BASE + "/api/products"), 
+      fetch(API_BASE + "/api/categories")
+    ]);
     products = await pRes.json();
     categories = await cRes.json();
     categories.forEach(cat => categoryMap[cat.id] = cat.name);
@@ -143,7 +149,7 @@ async function loadAllData() {
 async function loadFooterSocials() {
   const container = $('#footer-social-container'); if (!container) return;
   try {
-    const res = await fetch("/api/socials");
+    const res = await fetch(API_BASE + "/api/socials");
     const data = await res.json();
     let html = '';
     if (data.facebook) html += `<a href="${data.facebook}" target="_blank" class="social-bubble social-bubble-facebook"><i class="fab fa-facebook-f text-black"></i></a>`;
@@ -368,7 +374,7 @@ window.goToProductDetail = async function(id) {
   // Fetch reviews from API
   const reviewContainer = overlay.querySelector('#compiled-product-reviews');
   try {
-    const res = await fetch(`/api/reviews/${product.id}`);
+    const res = await fetch(API_BASE + `/api/reviews/${product.id}`);
     const rData = await res.json();
     if (rData.length === 0) {
       reviewContainer.innerHTML = 'No reviews yet.';
@@ -388,7 +394,7 @@ window.goToProductDetail = async function(id) {
       const text = overlay.querySelector('#review-comment-input').value.trim();
       if (!rating || !text) return showAlert('Please fill out all fields.');
       try {
-        const postRes = await fetch("/api/reviews", {
+        const postRes = await fetch(API_BASE + "/api/reviews", {
           method: "POST",
           headers: getHeaders(),
           body: JSON.stringify({ productId: product.id, rating, text })
@@ -462,7 +468,7 @@ window.openCheckout = async function(items, subtotal) {
 
     if (!name || !email || !mobile || !address || !city || !zip) return showAlert('Please fill out all fields.');
 
-    const configRes = await fetch("/api/config");
+    const configRes = await fetch(API_BASE + "/api/config");
     const configData = await configRes.json();
 
     const rzpOptions = {
@@ -472,7 +478,7 @@ window.openCheckout = async function(items, subtotal) {
       name: "Shobdotori Bookstore",
       handler: async function (response) {
         try {
-          const orderRes = await fetch("/api/orders", {
+          const orderRes = await fetch(API_BASE + "/api/orders", {
             method: "POST",
             headers: getHeaders(),
             body: JSON.stringify({
@@ -512,7 +518,7 @@ window.openTracking = async function() {
   overlay.querySelector('#close-tracking').onclick = () => window.closeOverlay(overlay);
 
   try {
-    const res = await fetch("/api/orders", { headers: getHeaders() });
+    const res = await fetch(API_BASE + "/api/orders", { headers: getHeaders() });
     const oData = await res.json();
     const list = overlay.querySelector('#orders-list');
     if (oData.length === 0) {
@@ -685,7 +691,7 @@ function openChatOverlay() {
     if (mode === 'ai') {
       aiHistory.push({ role: 'user', content: text }); renderAiChat();
       try {
-        const response = await fetch("/api/chat/message", {
+        const response = await fetch(API_BASE + "/api/chat/message", {
           method: "POST",
           headers: getHeaders(),
           body: JSON.stringify({ mode, history: aiHistory })
@@ -700,7 +706,7 @@ function openChatOverlay() {
       renderAiChat();
     } else {
       try {
-        await fetch("/api/chat/message", {
+        await fetch(API_BASE + "/api/chat/message", {
           method: "POST",
           headers: getHeaders(),
           body: JSON.stringify({ mode, text, userId: currentUser.uid })
@@ -760,7 +766,7 @@ window.openProfileOverlay = function() {
       const email = $('#login-email').value.trim();
       const password = $('#login-pass').value.trim();
       try {
-        const res = await fetch("/api/auth/login", {
+        const res = await fetch(API_BASE + "/api/auth/login", {
           method: "POST",
           headers: getHeaders(),
           body: JSON.stringify({ email, password })
@@ -810,7 +816,7 @@ window.openSignupOverlay = function() {
     const password = $('#su-pass').value.trim();
     
     try {
-      const res = await fetch("/api/auth/signup", {
+      const res = await fetch(API_BASE + "/api/auth/signup", {
         method: "POST",
         headers: getHeaders(),
         body: JSON.stringify({ name, email, password })
@@ -847,7 +853,7 @@ window.openOtpVerificationOverlay = function(email, name) {
   overlay.querySelector('#verify-otp-btn').onclick = async () => {
     const code = overlay.querySelector('#otp-code').value.trim();
     try {
-      const res = await fetch("/api/auth/verify", {
+      const res = await fetch(API_BASE + "/api/auth/verify", {
         method: "POST",
         headers: getHeaders(),
         body: JSON.stringify({ email, code })
@@ -866,7 +872,7 @@ window.openOtpVerificationOverlay = function(email, name) {
 
   overlay.querySelector('#resend-otp-btn').onclick = async () => {
     try {
-      const res = await fetch("/api/auth/resend-otp", {
+      const res = await fetch(API_BASE + "/api/auth/resend-otp", {
         method: "POST",
         headers: getHeaders(),
         body: JSON.stringify({ email })

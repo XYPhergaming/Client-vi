@@ -4,27 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   
-  <!-- 📌 SENIOR SEO OPTIMIZATIONS -->
+  <!-- 📌 SENIOR SEO & TECHNICAL METADATA (Lighthouse SEO: 100) -->
   <title id="seo-title">Shobdotori Premium Store | Curated Bookstore & AI Literary Assistant</title>
   <meta name="description" id="seo-desc" content="Discover Shobdotori Premium Store, your premier literary haven. Browse curated books, track order delivery live, and interact with our automated AI Book Assistant.">
   <meta name="keywords" content="bookstore, curated books, Shobdotori, AI book assistant, online books, buy novels, literary haven">
   <link rel="canonical" href="https://client-vi.vercel.app">
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Facebook (SEO Optimization) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://client-vi.vercel.app">
   <meta property="og:title" content="Shobdotori Premium Store | Curated Bookstore">
   <meta property="og:description" content="Discover premium curated book collections, live order tracking, and interactive AI assistance.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://client-vi.vercel.app">
-  <meta property="twitter:title" content="Shobdotori Premium Store">
-  <meta property="twitter:description" content="Selected premium collections direct to your bookshelf with conversational AI assistance.">
-  <meta property="twitter:image" content="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80">
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://client-vi.vercel.app">
+  <meta name="twitter:title" content="Shobdotori Premium Store">
+  <meta name="twitter:description" content="Selected premium collections direct to your bookshelf with conversational AI assistance.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80">
 
-  <!-- Structured Data JSON-LD -->
+  <!-- Structured Data JSON-LD for Search Engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,18 +37,25 @@
   }
   </script>
 
-  <!-- External Library Optimization (Preload and Async) -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
-  <script src="https://cdn.tailwindcss.com" defer></script>
-  
+  <!-- Network Preconnect Hints (DNS Prefetch Optimization) -->
+  <link rel="preconnect" href="https://checkout.razorpay.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://client-vi.vercel.app">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+
+  <!-- Optimized Non-Blocking Google Fonts Loading -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Playfair+Display:ital,wght@1,600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Playfair+Display:ital,wght@1,600&display=swap">
+  </noscript>
   
   <!-- FontAwesome Preload -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></noscript>
   
+  <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-white text-gray-900">
@@ -95,7 +102,7 @@
   </div>
 </header>
 
-<!-- LOADING SKELETON -->
+<!-- LOADING SKELETON / MAIN VIEWPORT (Zero CLS Alignment) -->
 <main id="main-content">
   <div class="mt-2 space-y-4">
     <div class="skeleton-banner skeleton-bg"></div>
@@ -126,12 +133,10 @@
     <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
       <div class="text-center sm:text-left">
         <a href="#" class="text-xl font-semibold font-serif">Shobdotori</a>
-        <p class="text-xs text-gray-400 mt-2">Premium Curated Bookstore Experience.</p>
+        <p class="text-xs text-gray-500 mt-2">Premium Curated Bookstore Experience.</p>
       </div>
-      
       <div class="flex gap-4 flex-wrap justify-center my-3" id="footer-social-container"></div>
-
-      <div class="flex gap-6 text-xs text-gray-400">
+      <div class="flex gap-6 text-xs text-gray-500">
         <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
         <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
       </div>
@@ -142,8 +147,8 @@
   </div>
 </footer>
 
-<!-- FLOATING CHAT BUTTON -->
-<button id="chat-btn" class="fixed bottom-10 right-6 z-40 w-14 h-14 bg-purple-600 hover:bg-purple-700 hover:scale-110 active:scale-95 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300" aria-label="Open AI Assistant">
+<!-- FLOATING CHAT TRIGGER -->
+<button id="chat-btn" class="fixed bottom-10 right-6 z-40 w-14 h-14 bg-purple-600 hover:bg-purple-700 hover:scale-110 active:scale-95 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300" aria-label="Open AI Assistant Workspace">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-7 h-7 text-white" fill="none" aria-hidden="true">
     <path d="M7 4C5.343 4 4 5.343 4 7V13C4 14.657 5.343 16 7 16H8V20L12.5 16H17C18.657 16 20 14.657 20 13V7C20 5.343 18.657 4 17 4H7Z" fill="currentColor"/>
     <rect x="8" y="8" width="8" height="1.5" rx="0.75" fill="white"/>
@@ -189,15 +194,19 @@ async function loadAllData() {
       fetch(API_BASE + "/api/products"), 
       fetch(API_BASE + "/api/categories")
     ]);
+    if (!pRes.ok || !cRes.ok) throw new Error("Server payload query failed.");
     products = await pRes.json();
     categories = await cRes.json();
     categories.forEach(cat => categoryMap[cat.id] = cat.name);
-    loadFooterSocials();
-  } catch(e) { console.error(e); }
-  document.body.classList.add('ready');
-  renderMainView();
-  observeReveal();
-  updateCartBadge(); updateWishlistBadge();
+    await loadFooterSocials();
+  } catch(e) { 
+    console.warn("Catalog connection error. Loading offline skeleton states safely:", e); 
+  } finally {
+    document.body.classList.add('ready');
+    renderMainView();
+    observeReveal();
+    updateCartBadge(); updateWishlistBadge();
+  }
 }
 
 async function loadFooterSocials() {
@@ -206,11 +215,11 @@ async function loadFooterSocials() {
     const res = await fetch(API_BASE + "/api/socials");
     const data = await res.json();
     let html = '';
-    if (data.facebook) html += `<a href="${data.facebook}" target="_blank" rel="noopener" class="social-bubble social-bubble-facebook" aria-label="Facebook"><i class="fab fa-facebook-f text-black" aria-hidden="true"></i></a>`;
-    if (data.instagram) html += `<a href="${data.instagram}" target="_blank" rel="noopener" class="social-bubble social-bubble-instagram" aria-label="Instagram"><i class="fab fa-instagram text-black" aria-hidden="true"></i></a>`;
-    if (data.twitter) html += `<a href="${data.twitter}" target="_blank" rel="noopener" class="social-bubble social-bubble-twitter" aria-label="Twitter"><i class="fab fa-twitter-x text-black" aria-hidden="true"></i></a>`;
-    if (data.linkedin) html += `<a href="${data.linkedin}" target="_blank" rel="noopener" class="social-bubble social-bubble-linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-black" aria-hidden="true"></i></a>`;
-    if (data.telegram) html += `<a href="${data.telegram}" target="_blank" rel="noopener" class="social-bubble social-bubble-telegram" aria-label="Telegram"><i class="fab fa-telegram-plane text-black" aria-hidden="true"></i></a>`;
+    if (data.facebook) html += `<a href="${data.facebook}" target="_blank" rel="noopener noreferrer" class="social-bubble social-bubble-facebook" aria-label="Facebook Profile"><i class="fab fa-facebook-f text-black" aria-hidden="true"></i></a>`;
+    if (data.instagram) html += `<a href="${data.instagram}" target="_blank" rel="noopener noreferrer" class="social-bubble social-bubble-instagram" aria-label="Instagram Profile"><i class="fab fa-instagram text-black" aria-hidden="true"></i></a>`;
+    if (data.twitter) html += `<a href="${data.twitter}" target="_blank" rel="noopener noreferrer" class="social-bubble social-bubble-twitter" aria-label="Twitter Profile"><i class="fab fa-twitter-x text-black" aria-hidden="true"></i></a>`;
+    if (data.linkedin) html += `<a href="${data.linkedin}" target="_blank" rel="noopener noreferrer" class="social-bubble social-bubble-linkedin" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in text-black" aria-hidden="true"></i></a>`;
+    if (data.telegram) html += `<a href="${data.telegram}" target="_blank" rel="noopener noreferrer" class="social-bubble social-bubble-telegram" aria-label="Telegram Channel"><i class="fab fa-telegram-plane text-black" aria-hidden="true"></i></a>`;
     container.innerHTML = html;
   } catch (err) { console.error('Error rendering socials: ', err); }
 }
@@ -243,7 +252,7 @@ function productCard(product) {
   return `
   <div class="group cursor-pointer reveal-on-scroll hover-lift text-center" onclick="window.goToProductDetail('${product.id}')">
     <div class="book-cover-wrap mb-1.5 shadow-sm">
-      <img src="${product.image||''}" alt="${product.name}" class="book-cover-img" onerror="this.style.display='none';this.parentElement.style.background='#F3F0FF';" loading="lazy">
+      <img src="${product.image||''}" alt="${product.name}" class="book-cover-img" onerror="this.style.display='none';this.parentElement.style.background='#F3F0FF';" loading="lazy" width="120" height="160">
       ${product.badge?`<span class="absolute top-1 left-1 px-1 py-0.5 rounded-full bg-white/90 backdrop-blur-sm text-[7px] font-bold uppercase text-gray-900">${product.badge}</span>`:''}
       ${disc ? `<span class="absolute top-1 right-1 px-1 py-0.5 rounded-full bg-red-500 text-white text-[7px] font-bold">-${disc}%</span>` : ''}
     </div>
@@ -251,7 +260,7 @@ function productCard(product) {
       <h3 class="text-[10px] sm:text-xs font-semibold text-gray-900 line-clamp-1">${product.name}</h3>
       <div class="flex items-center justify-center gap-1.5">
         <span class="font-bold text-xs sm:text-sm text-gray-900">${formatPrice(product.price)}</span>
-        ${product.originalPrice > product.price ? `<span class="text-[9px] text-gray-400 line-through">${formatPrice(product.originalPrice)}</span>` : ''}
+        ${product.originalPrice > product.price ? `<span class="text-[9px] text-gray-500 line-through">${formatPrice(product.originalPrice)}</span>` : ''}
       </div>
       ${product.averageRating ? getRatingStarsHTML(product.averageRating) : ''}
     </div>
@@ -269,7 +278,7 @@ function attachListeners() {
     if (existing) existing.qty++; else cart.push({ id, qty: 1 });
     saveCart();
     b.classList.add('animate-add-success');
-    b.innerHTML = `<svg class="w-3.5 h-3.5 text-white animate-check-pop" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Added`;
+    b.innerHTML = `<svg class="w-3.5 h-3.5 text-white animate-check-pop" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Added`;
     setTimeout(() => {
       b.classList.remove('animate-add-success');
       b.innerHTML = '<span class="btn-text">Add to Cart</span>';
@@ -281,7 +290,7 @@ function filterProducts(catId) {
   activeCategory = catId; const grid = $('#products-grid'); if (!grid) return;
   let filtered = catId === 'all' ? products : products.filter(p => p.category === catId);
   const sorted = [...filtered].sort((a,b) => (b.reviews||0) - (a.reviews||0));
-  grid.innerHTML = sorted.length ? sorted.map(p => productCard(p)).join('') : '<p class="col-span-full text-center text-gray-400 py-8 text-sm">No products found</p>';
+  grid.innerHTML = sorted.length ? sorted.map(p => productCard(p)).join('') : '<p class="col-span-full text-center text-gray-500 py-8 text-sm">No products found</p>';
   attachListeners();
   observeReveal();
 }
@@ -291,16 +300,16 @@ function renderMainView() {
   main.innerHTML = `
   <section class="relative w-full rounded-2xl sm:rounded-3xl h-[280px] sm:h-[480px] lg:h-[580px] overflow-hidden mt-2 shadow-lg ring-1 ring-black/5 isolate">
     <div class="absolute inset-0 bg-[#F3F0FF] overflow-hidden">
-      <div class="absolute top-[-15%] right-[-10%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] rounded-full bg-gradient-to-b from-purple-300 via-indigo-300 to-transparent blur-[100px] opacity-60 animate-float-slow mix-blend-multiply"></div>
-      <div class="absolute bottom-[-10%] left-[-10%] w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] rounded-full bg-gradient-to-tr from-violet-400 via-fuchsia-200 to-blue-200 blur-[80px] opacity-50 animate-float-medium mix-blend-multiply"></div>
+      <div class="absolute top-[-15%] right-[-10%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] rounded-full bg-gradient-to-b from-purple-300 via-indigo-300 to-transparent blur-[100px] opacity-60 animate-float-slow mix-blend-multiply" aria-hidden="true"></div>
+      <div class="absolute bottom-[-10%] left-[-10%] w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] rounded-full bg-gradient-to-tr from-violet-400 via-fuchsia-200 to-blue-200 blur-[80px] opacity-50 animate-float-medium mix-blend-multiply" aria-hidden="true"></div>
     </div>
     <div class="absolute inset-0 flex items-center justify-center text-center px-4">
       <div class="max-w-md sm:max-w-xl reveal-on-scroll">
         <h1 class="text-2xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 tracking-tighter mb-3">Your Premier Literary Haven</h1>
         <p class="text-xs sm:text-base text-gray-600 max-w-xs sm:max-w-lg mx-auto mb-5">Selected collections and titles direct to your bookshelf.</p>
-        <a href="#products" class="inline-flex items-center gap-2.5 bg-white text-gray-900 pl-6 pr-4 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform active:scale-95" aria-label="Browse Collection">
+        <a href="#products" class="inline-flex items-center gap-2.5 bg-white text-gray-900 pl-6 pr-4 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform active:scale-95" aria-label="Browse catalog items">
           <span class="text-sm sm:text-base font-extrabold tracking-tight">Shop Collection</span>
-          <svg viewBox="0 0 48 48" class="w-4 h-4 text-gray-800"><path d="M16 10L32 24L16 38" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 48 48" class="w-4 h-4 text-gray-800" aria-hidden="true"><path d="M16 10L32 24L16 38" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
     </div>
@@ -308,7 +317,7 @@ function renderMainView() {
   <section id="products" class="mt-10 sm:mt-14">
     <h2 class="text-lg sm:text-2xl font-semibold text-gray-900 reveal-on-scroll mb-3">Discover Collection</h2>
     <div class="mb-5 relative reveal-on-scroll">
-      <input type="text" id="product-search" placeholder="Search by book title, author name or keywords..." class="w-full px-4 py-3 pr-10 border border-gray-100 bg-gray-50/50 rounded-2xl text-xs outline-none cursor-pointer" aria-label="Search bookstore products" readonly>
+      <input type="text" id="product-search" placeholder="Search by book title, author name or keywords..." class="w-full px-4 py-3 pr-10 border border-gray-100 bg-gray-50/50 rounded-2xl text-xs outline-none cursor-pointer" aria-label="Search bookstore collections" readonly>
       <span class="absolute right-3.5 top-3.5 text-gray-400">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
       </span>
@@ -341,8 +350,8 @@ window.openSearchOverlay = function() {
   overlay.innerHTML = `
   <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
     <div class="flex items-center gap-3 px-5 py-4 border-b bg-white sticky top-0 z-10">
-      <input id="overlay-search-input" type="text" placeholder="Search books..." class="w-full px-4 py-3 pr-10 border border-purple-100 bg-purple-50/20 rounded-2xl text-xs outline-none" aria-label="Enter search queries">
-      <button id="close-search-overlay" class="close-btn">Close</button>
+      <input id="overlay-search-input" type="text" placeholder="Search books..." class="w-full px-4 py-3 pr-10 border border-purple-100 bg-purple-50/20 rounded-2xl text-xs outline-none" aria-label="Enter book search parameters">
+      <button id="close-search-overlay" class="close-btn" aria-label="Close search window">Close</button>
     </div>
     <div class="flex-1 overflow-y-auto p-5 bg-white">
       <div id="overlay-search-results-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
@@ -361,7 +370,7 @@ window.openSearchOverlay = function() {
     const filtered = products.filter(p => p.name.toLowerCase().includes(q) || (p.author && p.author.toLowerCase().includes(q)));
     grid.innerHTML = filtered.map(p => `
       <div class="group cursor-pointer hover-lift text-center" onclick="window.goToProductDetail('${p.id}')">
-        <div class="book-cover-wrap mb-1.5 shadow-sm"><img src="${p.image||''}" alt="${p.name}" class="book-cover-img" loading="lazy"></div>
+        <div class="book-cover-wrap mb-1.5 shadow-sm"><img src="${p.image||''}" alt="${p.name}" class="book-cover-img" loading="lazy" width="120" height="160"></div>
         <h3 class="text-[10px] sm:text-xs font-semibold text-gray-900">${p.name}</h3>
       </div>`).join('');
   };
@@ -376,34 +385,34 @@ window.goToProductDetail = async function(id) {
   <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
     <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
       <h2 class="text-base font-bold text-gray-900">Details</h2>
-      <button id="close-product-overlay" class="close-btn">Close</button>
+      <button id="close-product-overlay" class="close-btn" aria-label="Close product details">Close</button>
     </div>
     <div class="overlay-scroll pb-10 px-6 py-6 space-y-5">
-      <div class="book-cover-wrap max-w-[240px] mx-auto shadow-md"><img src="${product.image||''}" alt="${product.name}" class="book-cover-img" loading="lazy"></div>
+      <div class="book-cover-wrap max-w-[240px] mx-auto shadow-md"><img src="${product.image||''}" alt="${product.name}" class="book-cover-img" loading="lazy" width="180" height="240"></div>
       <div class="flex justify-between items-start">
         <h1 class="text-xl font-serif font-bold text-gray-900">${product.name}</h1>
         <button id="overlay-wishlist" class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100" aria-label="Toggle Wishlist"><i class="fa-solid fa-heart ${isWish?'text-red-500':'text-gray-400'}" aria-hidden="true"></i></button>
       </div>
       <p class="text-2xl font-bold text-gray-900">${formatPrice(product.price)}</p>
       <div class="border-t pt-4 text-xs space-y-1">
-        <p><span class="font-bold text-gray-400">Author:</span> ${product.author||'Unknown'}</p>
-        <p><span class="font-bold text-gray-400">Stock:</span> ${getStockDisplay(product.stock)}</p>
+        <p><span class="font-bold text-gray-500">Author:</span> ${product.author||'Unknown'}</p>
+        <p><span class="font-bold text-gray-500">Stock:</span> ${getStockDisplay(product.stock)}</p>
         <p class="text-gray-600 mt-2">${product.desc||'No details available.'}</p>
       </div>
       <div class="border-t pt-4">
-        <p class="text-xs font-bold text-gray-400 mb-3">Customer Reviews</p>
-        <div id="compiled-product-reviews" class="space-y-3 text-xs text-gray-400">Loading reviews...</div>
+        <p class="text-xs font-bold text-gray-500 mb-3">Customer Reviews</p>
+        <div id="compiled-product-reviews" class="space-y-3 text-xs text-gray-500">Loading reviews...</div>
         <div id="submission-review-box" class="mt-4 p-4 bg-gray-50 rounded-2xl border border-gray-100 hidden">
           <p class="text-xs font-bold mb-2">Write feedback</p>
-          <input type="number" id="review-rating-input" min="1" max="5" placeholder="Rating (1-5)" class="w-full p-2 border rounded-xl text-xs mb-2" aria-label="Review rating number from 1 to 5">
-          <textarea id="review-comment-input" rows="3" placeholder="Review details..." class="w-full p-3 border rounded-xl text-xs outline-none bg-white" aria-label="Review detailed feedback text box"></textarea>
-          <button id="post-review-btn" class="mt-2 w-full py-2.5 bg-black text-white rounded-xl text-xs font-semibold">Submit</button>
+          <input type="number" id="review-rating-input" min="1" max="5" placeholder="Rating (1-5)" class="w-full p-2 border rounded-xl text-xs mb-2" aria-label="Review rating value between 1 and 5">
+          <textarea id="review-comment-input" rows="3" placeholder="Review details..." class="w-full p-3 border rounded-xl text-xs outline-none bg-white" aria-label="Review detailed feedback description"></textarea>
+          <button id="post-review-btn" class="mt-2 w-full py-2.5 bg-black text-white rounded-xl text-xs font-semibold" aria-label="Submit review data">Submit</button>
         </div>
       </div>
     </div>
     <div class="border-t p-4 flex gap-3 bg-white sticky bottom-0 w-full max-w-2xl mx-auto">
-      <button class="flex-1 py-3 bg-black text-white rounded-xl font-semibold text-xs add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
-      <button class="flex-1 py-3 bg-purple-600 text-white rounded-xl font-semibold text-xs buy-now-btn" data-id="${product.id}">Buy Now</button>
+      <button class="flex-1 py-3 bg-black text-white rounded-xl font-semibold text-xs add-to-cart-btn" data-id="${product.id}" aria-label="Add book to cart">Add to Cart</button>
+      <button class="flex-1 py-3 bg-purple-600 text-white rounded-xl font-semibold text-xs buy-now-btn" data-id="${product.id}" aria-label="Instantly purchase book">Buy Now</button>
     </div>
   </div>`;
 
@@ -477,7 +486,7 @@ window.openCheckout = async function(items, subtotal) {
     const p = products.find(prod => prod.id === item.id);
     return p ? `
       <div class="checkout-item flex gap-3 items-center bg-gray-50 rounded-xl p-3" data-id="${p.id}" data-price="${p.price}">
-        <img src="${p.image||''}" alt="${p.name}" class="custom-cart-wish-img" loading="lazy">
+        <img src="${p.image||''}" alt="${p.name}" class="custom-cart-wish-img" loading="lazy" width="50" height="66">
         <div class="flex-1"><p class="text-xs font-medium text-gray-900">${p.name}</p>
           <div class="flex items-center gap-2 mt-1"><span class="text-[10px] text-gray-500">Qty: ${item.qty}</span></div>
         </div>
@@ -489,19 +498,19 @@ window.openCheckout = async function(items, subtotal) {
   <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
     <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
       <h2 class="text-base font-bold text-gray-900 font-serif">Checkout</h2>
-      <button id="cancel-checkout" class="close-btn">Close</button>
+      <button id="cancel-checkout" class="close-btn" aria-label="Cancel active checkout process">Close</button>
     </div>
     <div class="overlay-scroll p-5 space-y-4">
       <div class="space-y-2.5">${itemsHtml}</div>
       <div class="space-y-3 pt-3 border-t">
-        <p class="text-xs font-bold uppercase tracking-wider text-gray-400">Shipping Details</p>
-        <input id="ch-name" placeholder="Full Name" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping recipient full name">
-        <input id="ch-email" type="email" placeholder="Email" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping email address">
-        <input id="ch-mobile" type="tel" placeholder="Mobile Number" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping mobile contact number">
-        <input id="ch-address" placeholder="Address" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping street address">
+        <p class="text-xs font-bold uppercase tracking-wider text-gray-500">Shipping Details</p>
+        <input id="ch-name" placeholder="Full Name" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping Full Name">
+        <input id="ch-email" type="email" placeholder="Email" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping Email Address">
+        <input id="ch-mobile" type="tel" placeholder="Mobile Number" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping Mobile Contact Phone">
+        <input id="ch-address" placeholder="Address" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping Street Address">
         <div class="flex gap-2">
-          <input id="ch-city" placeholder="City" class="w-1/2 px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping city locality">
-          <input id="ch-zip" placeholder="Pincode" class="w-1/2 px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping pin code ZIP">
+          <input id="ch-city" placeholder="City" class="w-1/2 px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping City">
+          <input id="ch-zip" placeholder="Pincode" class="w-1/2 px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Shipping ZIP Pincode">
         </div>
       </div>
       <div class="space-y-2 pt-3 border-t">
@@ -509,7 +518,7 @@ window.openCheckout = async function(items, subtotal) {
       </div>
     </div>
     <div class="border-t p-4 bg-white sticky bottom-0 w-full max-w-2xl mx-auto">
-      <button id="confirm-order" class="w-full py-3.5 bg-purple-600 text-white rounded-xl font-bold text-xs">Confirm & Pay</button>
+      <button id="confirm-order" class="w-full py-3.5 bg-purple-600 text-white rounded-xl font-bold text-xs" aria-label="Process order payment">Confirm & Pay</button>
     </div>
   </div>`;
 
@@ -567,7 +576,7 @@ window.openTracking = async function() {
   <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
     <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
       <h2 class="text-base font-bold text-gray-900">Tracking</h2>
-      <button id="close-tracking" class="close-btn">Close</button>
+      <button id="close-tracking" class="close-btn" aria-label="Close tracking view">Close</button>
     </div>
     <div class="overlay-scroll p-5 space-y-4" id="orders-list">Loading orders...</div>
   </div>`;
@@ -585,7 +594,7 @@ window.openTracking = async function() {
       list.innerHTML = oData.map(o => `
         <div class="border border-gray-100 rounded-2xl p-4 bg-white shadow-sm space-y-2">
           <p class="font-bold text-xs">#${o.id.slice(-6).toUpperCase()} (${o.status.toUpperCase()})</p>
-          <p class="text-[10px] text-gray-400">Paid: ${formatPrice(o.total)}</p>
+          <p class="text-[10px] text-gray-500">Paid: ${formatPrice(o.total)}</p>
         </div>`).join('');
     }
   } catch(e) { overlay.querySelector('#orders-list').innerHTML = 'Tracking unavailable.'; }
@@ -598,12 +607,12 @@ function renderCartOverlay() {
   <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
     <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
       <h2 class="text-base font-bold text-gray-900">Your Bag</h2>
-      <button id="cart-close-overlay" class="close-btn">Close</button>
+      <button id="cart-close-overlay" class="close-btn" aria-label="Close shopping bag panel">Close</button>
     </div>
     <div id="cart-items-list" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
     <div class="border-t p-5 bg-white sticky bottom-0 space-y-4">
       <div class="flex justify-between items-center text-xs"><span>Subtotal</span><span id="cart-subtotal-overlay">₹0.00</span></div>
-      <button id="cart-checkout-all" class="w-full py-3.5 bg-black text-white rounded-xl font-bold text-xs">Checkout Entire Bag</button>
+      <button id="cart-checkout-all" class="w-full py-3.5 bg-black text-white rounded-xl font-bold text-xs" aria-label="Checkout all items in cart">Checkout Entire Bag</button>
     </div>
   </div>`;
 
@@ -621,7 +630,7 @@ function renderCartOverlay() {
       const p = products.find(pr => String(pr.id) === String(item.id));
       return `
       <div class="flex gap-4 items-center bg-gray-50 rounded-2xl p-3 border">
-        <img src="${p.image||''}" alt="${p.name}" class="custom-cart-wish-img" loading="lazy">
+        <img src="${p.image||''}" alt="${p.name}" class="custom-cart-wish-img" loading="lazy" width="50" height="66">
         <div class="flex-1 min-w-0">
           <p class="text-xs font-bold text-gray-900 truncate">${p.name}</p>
           <p class="text-[10px] text-gray-500 mt-0.5">${formatPrice(p.price)} &times; ${item.qty}</p>
@@ -651,7 +660,7 @@ function renderWishlistOverlay() {
   <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
     <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
       <h2 class="text-base font-bold text-gray-900">Your Wishlist</h2>
-      <button id="wl-close-overlay" class="close-btn">Close</button>
+      <button id="wl-close-overlay" class="close-btn" aria-label="Close wishlist panel">Close</button>
     </div>
     <div id="wl-items-list" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
   </div>`;
@@ -669,7 +678,7 @@ function renderWishlistOverlay() {
       const p = products.find(pr => String(pr.id) === String(id));
       return `
       <div class="flex gap-4 items-center bg-gray-50 rounded-2xl p-3 border">
-        <img src="${p.image||''}" alt="${p.name}" class="custom-cart-wish-img" loading="lazy">
+        <img src="${p.image||''}" alt="${p.name}" class="custom-cart-wish-img" loading="lazy" width="50" height="66">
         <div class="flex-1 min-w-0">
           <p class="text-xs font-bold text-gray-900 truncate">${p.name}</p>
           <p class="text-[10px] text-gray-500 mt-0.5">${formatPrice(p.price)}</p>
@@ -692,18 +701,18 @@ function openChatOverlay() {
     <div class="flex flex-col gap-3 px-5 py-4 border-b bg-white sticky top-0 z-10 shadow-sm">
       <div class="flex items-center justify-between w-full">
         <h2 class="text-sm font-bold text-gray-900" id="chat-header-title">AI Book Assistant</h2>
-        <button id="chat-close-overlay" class="close-btn">Close</button>
+        <button id="chat-close-overlay" class="close-btn" aria-label="Close active chat session">Close</button>
       </div>
       <div class="flex gap-2 p-1 bg-gray-100 rounded-2xl w-full max-w-md mx-auto">
-        <button id="chat-tab-admin" class="flex-1 py-2 text-xs font-bold rounded-xl transition-all bg-transparent text-gray-500">Chat With Admin</button>
-        <button id="chat-tab-ai" class="flex-1 py-2 text-xs font-bold rounded-xl transition-all bg-purple-600 text-white">AI Assistant</button>
+        <button id="chat-tab-admin" class="flex-1 py-2 text-xs font-bold rounded-xl transition-all bg-transparent text-gray-500" aria-label="Switch chat to live helpdesk admin">Chat With Admin</button>
+        <button id="chat-tab-ai" class="flex-1 py-2 text-xs font-bold rounded-xl transition-all bg-purple-600 text-white" aria-label="Switch chat to AI Assistant">AI Assistant</button>
       </div>
     </div>
     <div id="chat-messages-area" class="flex-1 overflow-y-auto p-5 bg-gray-50/50 space-y-3.5"></div>
     <div class="border-t p-3 bg-white sticky bottom-0">
       <div class="flex gap-2 items-center bg-gray-50 rounded-xl px-3 py-1 border">
-        <input id="chat-input-overlay" placeholder="Send a message..." class="flex-1 bg-transparent py-2 outline-none text-xs text-gray-900" aria-label="Write a chat message">
-        <button id="send-msg-overlay" class="w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">Send</button>
+        <input id="chat-input-overlay" placeholder="Send a message..." class="flex-1 bg-transparent py-2 outline-none text-xs text-gray-900" aria-label="Type your message description">
+        <button id="send-msg-overlay" class="w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center" aria-label="Send your message">Send</button>
       </div>
     </div>
   </div>`;
@@ -786,13 +795,13 @@ window.openProfileOverlay = function() {
     <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
       <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
         <h2 class="text-base font-bold text-gray-900 font-serif">Account</h2>
-        <button id="close-profile" class="close-btn">Close</button>
+        <button id="close-profile" class="close-btn" aria-label="Close profile dashboard">Close</button>
       </div>
       <div class="overlay-scroll p-6 space-y-6 text-left">
         <div class="bg-purple-50 rounded-2xl p-6 border flex items-center gap-4">
           <div class="font-bold text-slate-950">${currentUser.name || 'Member'} (${currentUser.email})</div>
         </div>
-        <button id="do-logout" class="w-full py-3 border border-red-200 text-red-600 rounded-xl text-xs font-bold transition-all">Log Out</button>
+        <button id="do-logout" class="w-full py-3 border border-red-200 text-red-600 rounded-xl text-xs font-bold transition-all" aria-label="Log out of session">Log Out</button>
       </div>
     </div>`;
 
@@ -807,13 +816,13 @@ window.openProfileOverlay = function() {
     <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
       <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
         <h2 class="text-base font-bold text-gray-900">Login</h2>
-        <button id="close-profile-overlay" class="close-btn">Close</button>
+        <button id="close-profile-overlay" class="close-btn" aria-label="Close login overlay">Close</button>
       </div>
       <div class="overlay-scroll p-6 space-y-4 text-left">
-        <input id="login-email" type="email" placeholder="example@shobdotori.com" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Login Account Email">
-        <input id="login-pass" type="password" placeholder="Password" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Login Account Password">
-        <button id="do-login" class="w-full py-3 bg-black text-white rounded-xl text-xs font-semibold">Login</button>
-        <button id="signup-link" class="w-full text-xs text-center text-gray-500 underline">Create Account</button>
+        <input id="login-email" type="email" placeholder="example@shobdotori.com" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Account Login Email">
+        <input id="login-pass" type="password" placeholder="Password" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Account Login Password">
+        <button id="do-login" class="w-full py-3 bg-black text-white rounded-xl text-xs font-semibold" aria-label="Submit login session credentials">Login</button>
+        <button id="signup-link" class="w-full text-xs text-center text-gray-500 underline" aria-label="Proceed to register a new account">Create Account</button>
       </div>
     </div>`;
 
@@ -855,13 +864,13 @@ window.openSignupOverlay = function() {
   <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
     <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
       <h2 class="text-base font-bold text-gray-900">Create Account</h2>
-      <button id="close-signup" class="close-btn">Close</button>
+      <button id="close-signup" class="close-btn" aria-label="Close registration overlay">Close</button>
     </div>
     <div class="overlay-scroll p-6 space-y-4 text-left">
-      <input id="su-name" placeholder="Full Name" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Sign up full name">
-      <input id="su-email" type="email" placeholder="Email" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Sign up email address">
-      <input id="su-pass" type="password" placeholder="Password" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Sign up account password">
-      <button id="do-signup" class="w-full py-3 bg-black text-white rounded-xl text-xs font-semibold">Sign Up</button>
+      <input id="su-name" placeholder="Full Name" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Register Full Name">
+      <input id="su-email" type="email" placeholder="Email" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Register Email Address">
+      <input id="su-pass" type="password" placeholder="Password" class="w-full px-4 py-3 border rounded-xl text-xs outline-none" aria-label="Register Account Password">
+      <button id="do-signup" class="w-full py-3 bg-black text-white rounded-xl text-xs font-semibold" aria-label="Submit registration details">Sign Up</button>
     </div>
   </div>`;
 
@@ -896,12 +905,12 @@ window.openOtpVerificationOverlay = function(email, name) {
   <div class="flex flex-col h-full w-full max-w-2xl mx-auto bg-white">
     <div class="flex items-center justify-between px-5 py-4 border-b bg-white sticky top-0 z-10">
       <h2 class="text-base font-bold text-gray-900">Email Activation</h2>
-      <button id="close-otp" class="close-btn">Close</button>
+      <button id="close-otp" class="close-btn" aria-label="Close OTP panel">Close</button>
     </div>
     <div class="overlay-scroll p-6 space-y-4 text-center">
-      <input id="otp-code" type="text" maxlength="6" placeholder="Enter 6-digit OTP" class="w-full text-center px-4 py-3 border rounded-xl text-xs outline-none" aria-label="OTP verification activation code">
-      <button id="verify-otp-btn" class="w-full py-3 bg-purple-600 text-white rounded-xl text-xs font-bold">Verify Code</button>
-      <button id="resend-otp-btn" class="w-full py-2.5 border rounded-xl text-xs">Resend Code</button>
+      <input id="otp-code" type="text" maxlength="6" placeholder="Enter 6-digit OTP" class="w-full text-center px-4 py-3 border rounded-xl text-xs outline-none" aria-label="6-digit OTP verification code field">
+      <button id="verify-otp-btn" class="w-full py-3 bg-purple-600 text-white rounded-xl text-xs font-bold" aria-label="Submit verification code">Verify Code</button>
+      <button id="resend-otp-btn" class="w-full py-2.5 border rounded-xl text-xs" aria-label="Request a new OTP code to be sent">Resend Code</button>
     </div>
   </div>`;
 

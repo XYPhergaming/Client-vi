@@ -27,9 +27,6 @@ const app = express();
 app.use(express.json());
 app.use(corsMiddleware);
 
-// আপনার Brevo ড্যাশবোর্ডে ভেরিফাইড ইমেইলটি এখানে দিন (বা environment variable-এ রাখুন)
-const VERIFIED_BREVO_SENDER = process.env.BREVO_SENDER_EMAIL || "no-reply@shobdotori.com";
-
 // Authentication Middleware (No admin SDK used)
 async function requireAuth(req, res, next) {
   const uid = req.headers['x-user-uid'];
@@ -61,8 +58,7 @@ app.post("/api/auth/signup", async (req, res) => {
     
     const otp = await createOtpSession(name, email, password);
     const sent = await sendEmail({
-      // ✅ ফিক্সড: sender হিসেবে সর্বদা আপনার ভেরিফাইড ইমেইল এড্রেসটি যাবে
-      sender: { name: "Shobdotori Bookstore", email: VERIFIED_BREVO_SENDER },
+      sender: { name: "Shobdotori Bookstore", email: freefiregaming602433@gmail.com },
       to: [{ email: email.toLowerCase(), name }],
       subject: "Shobdotori Account Activation - OTP Verification",
       htmlContent: `
@@ -118,8 +114,7 @@ app.post("/api/auth/resend-otp", async (req, res) => {
     }
     
     const sent = await sendEmail({
-      // ✅ ফিক্সড: sender হিসেবে সর্বদা আপনার ভেরিফাইড ইমেইল এড্রেসটি যাবে
-      sender: { name: "Shobdotori Bookstore", email: VERIFIED_BREVO_SENDER },
+      sender: { name: "Shobdotori Bookstore", email: freefiregaming602433@gmail.com },
       to: [{ email: email.toLowerCase(), name: result.name }],
       subject: "Shobdotori Account Activation - OTP Verification",
       htmlContent: `
@@ -185,12 +180,10 @@ app.get("/api/auth/profile", requireAuth, async (req, res) => {
   }
 });
 
-// 📌 CATALOG OPERATIONS (Lighthouse Edge CDN Cache headers added)
+// Catalog Operations
 app.get("/api/products", async (req, res) => {
   try {
     const p = await getProducts();
-    // Vercel global Edge CDN Caching (10 mins hard cache, background revalidation)
-    res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=1200');
     res.json(p);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -200,8 +193,6 @@ app.get("/api/products", async (req, res) => {
 app.get("/api/categories", async (req, res) => {
   try {
     const c = await getCategories();
-    // Vercel global Edge CDN Caching
-    res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=1200');
     res.json(c);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -211,8 +202,6 @@ app.get("/api/categories", async (req, res) => {
 app.get("/api/socials", async (req, res) => {
   try {
     const s = await getSocialSettings();
-    // Vercel global Edge CDN Caching
-    res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=1200');
     res.json(s);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -279,8 +268,7 @@ app.post("/api/orders", async (req, res) => {
     });
 
     await sendEmail({
-      // ✅ ফিক্সড: sender হিসেবে সর্বদা আপনার ভেরিফাইড ইমেইল এড্রেসটি যাবে
-      sender: { name: "Shobdotori Bookstore", email: VERIFIED_BREVO_SENDER },
+      sender: { name: "Shobdotori Bookstore", email: freefiregaming602433@gmail.com },
       to: [{ email: customer.email, name: customer.name }],
       subject: `Order Confirmed: #${orderId.toUpperCase()}`,
       htmlContent: `

@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(corsMiddleware);
 
 // আপনার Brevo ড্যাশবোর্ডে ভেরিফাইড ইমেইলটি এখানে দিন (বা environment variable-এ রাখুন)
-const VERIFIED_BREVO_SENDER = process.env.BREVO_SENDER_EMAIL || "no-reply@shobdotori.com";
+const VERIFIED_BREVO_SENDER = process.env.BREVO_SENDER_EMAIL || "freefiregaming602433@gmail.com";
 
 // Authentication Middleware (No admin SDK used)
 async function requireAuth(req, res, next) {
